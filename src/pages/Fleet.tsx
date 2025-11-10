@@ -262,12 +262,14 @@ const Fleet = () => {
                   </p>
                   <ul className="space-y-2 text-sm text-white/90">
                     {categories.map((category) => (
-                      <li
-                        key={category.value}
-                        className="flex items-start gap-2"
-                      >
-                        <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
-                        <span>{category.label}</span>
+                      <li key={category.value}>
+                        <a
+                          href={`#${category.value}`}
+                          className="flex items-start gap-2 text-white/90 transition hover:text-primary focus:outline-none focus-visible:text-primary"
+                        >
+                          <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+                          <span>{category.label}</span>
+                        </a>
                       </li>
                     ))}
                   </ul>
@@ -307,9 +309,9 @@ const Fleet = () => {
                   </TabsTrigger>
                 ))}
               </TabsList>
-            </div>
+                      </div>
             {categories.map((category) => (
-              <TabsContent key={category.value} value={category.value}>
+              <TabsContent key={category.value} value={category.value} id={category.value}>
                 <div className="mx-auto max-w-5xl space-y-6">
                   <Card>
                     <CardContent className="p-8">
@@ -338,13 +340,13 @@ const Fleet = () => {
                               </li>
                             ))}
                           </ul>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
               </TabsContent>
-            ))}
+          ))}
           </Tabs>
         </div>
       </section>
