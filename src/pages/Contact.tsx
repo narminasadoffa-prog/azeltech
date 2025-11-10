@@ -11,12 +11,12 @@ import Footer from "@/components/Footer";
 import { z } from "zod";
 
 const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
-  company: z.string().trim().max(100, "Company name must be less than 100 characters").optional(),
-  phone: z.string().trim().min(1, "Phone is required").max(20, "Phone must be less than 20 characters"),
-  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
-  serviceType: z.string().trim().max(100, "Service type must be less than 100 characters").optional(),
-  message: z.string().trim().min(1, "Message is required").max(1000, "Message must be less than 1000 characters"),
+  name: z.string().trim().min(1, "Ad və soyad tələb olunur").max(100, "Ad 100 simvoldan az olmalıdır"),
+  company: z.string().trim().max(100, "Şirkət adı 100 simvoldan az olmalıdır").optional(),
+  phone: z.string().trim().min(1, "Telefon nömrəsi tələb olunur").max(20, "Telefon nömrəsi 20 simvoldan az olmalıdır"),
+  email: z.string().trim().email("Yanlış email ünvanı").max(255, "Email 255 simvoldan az olmalıdır"),
+  serviceType: z.string().trim().max(100, "Xidmət növü 100 simvoldan az olmalıdır").optional(),
+  message: z.string().trim().min(1, "Mesaj tələb olunur").max(1000, "Mesaj 1000 simvoldan az olmalıdır"),
 });
 
 const Contact = () => {
@@ -37,8 +37,8 @@ const Contact = () => {
       contactSchema.parse(formData);
       
       toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you as soon as possible.",
+        title: "Mesaj uğurla göndərildi!",
+        description: "Tezliklə sizinlə əlaqə saxlayacağıq.",
       });
       
       setFormData({
@@ -52,7 +52,7 @@ const Contact = () => {
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast({
-          title: "Validation Error",
+          title: "Doğrulama Xətası",
           description: error.errors[0].message,
           variant: "destructive",
         });
@@ -70,12 +70,12 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <MapPin className="h-6 w-6" />,
-      title: "Address",
-      content: "Baku, Azerbaijan",
+      title: "Ünvan",
+      content: "Bakı, Azərbaycan",
     },
     {
       icon: <Phone className="h-6 w-6" />,
-      title: "Phone",
+      title: "Telefon",
       content: "+994 XX XXX XX XX",
     },
     {
@@ -85,8 +85,8 @@ const Contact = () => {
     },
     {
       icon: <Clock className="h-6 w-6" />,
-      title: "Working Hours",
-      content: "Monday - Friday: 9:00 AM - 6:00 PM",
+      title: "İş Saatları",
+      content: "Bazar ertəsi - Cümə: 09:00 - 18:00",
     },
   ];
 
@@ -98,9 +98,9 @@ const Contact = () => {
       <section className="bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] py-16 text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Contact Us</h1>
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Bizimlə Əlaqə</h1>
             <p className="text-xl text-primary-foreground/90">
-              Looking for heavy machinery rental or technical support for your project?
+              Ağır texnika icarəsi və ya layihəniz üçün texniki dəstək axtarırsınız?
             </p>
           </div>
         </div>
@@ -112,7 +112,7 @@ const Contact = () => {
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-3">
             {/* Contact Info */}
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-foreground">Get in Touch</h2>
+              <h2 className="text-2xl font-bold text-foreground">Əlaqə Saxlayın</h2>
               {contactInfo.map((info, index) => (
                 <Card key={index}>
                   <CardContent className="p-6">
@@ -128,11 +128,11 @@ const Contact = () => {
             <div className="lg:col-span-2">
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="mb-6 text-2xl font-bold text-card-foreground">Send Us a Message</h2>
+                  <h2 className="mb-6 text-2xl font-bold text-card-foreground">Bizə Mesaj Göndərin</h2>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid gap-6 md:grid-cols-2">
                       <div className="space-y-2">
-                        <Label htmlFor="name">Name *</Label>
+                        <Label htmlFor="name">Ad və Soyad *</Label>
                         <Input
                           id="name"
                           name="name"
@@ -143,7 +143,7 @@ const Contact = () => {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="company">Company</Label>
+                        <Label htmlFor="company">Şirkət</Label>
                         <Input
                           id="company"
                           name="company"
@@ -156,7 +156,7 @@ const Contact = () => {
 
                     <div className="grid gap-6 md:grid-cols-2">
                       <div className="space-y-2">
-                        <Label htmlFor="phone">Phone *</Label>
+                        <Label htmlFor="phone">Telefon *</Label>
                         <Input
                           id="phone"
                           name="phone"
@@ -182,7 +182,7 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="serviceType">Type of Service Required</Label>
+                      <Label htmlFor="serviceType">Tələb olunan xidmət növü</Label>
                       <Input
                         id="serviceType"
                         name="serviceType"
@@ -193,7 +193,7 @@ const Contact = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message">Message *</Label>
+                      <Label htmlFor="message">Mesaj *</Label>
                       <Textarea
                         id="message"
                         name="message"
@@ -206,7 +206,7 @@ const Contact = () => {
                     </div>
 
                     <Button type="submit" size="lg" className="w-full">
-                      Send Request
+                      Sorğu Göndər
                     </Button>
                   </form>
                 </CardContent>

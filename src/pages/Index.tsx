@@ -9,31 +9,31 @@ const Index = () => {
   const services = [
     {
       icon: <Truck className="h-8 w-8" />,
-      title: "Heavy Machinery Rental",
-      description: "Modern fleet of bulldozers, excavators, loaders, and more",
+      title: "Ağır Texnika İcarəsi",
+      description: "Buldozerlər, ekskavatorlar, yükləyicilər və digər müasir texnika parkı",
     },
     {
       icon: <Building2 className="h-8 w-8" />,
-      title: "Earthworks & Site Preparation",
-      description: "Professional excavation, leveling, and soil compaction",
+      title: "Torpaq İşləri və Sahə Hazırlığı",
+      description: "Peşəkar qazma, düzləşdirmə və torpaq sıxlaşdırma işləri",
     },
     {
       icon: <Hammer className="h-8 w-8" />,
-      title: "Road Construction",
-      description: "Complete roadbed preparation and pre-asphalt works",
+      title: "Yol Tikintisi",
+      description: "Tam yol yatağı hazırlığı və asfaltdan əvvəlki işlər",
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "Subcontracting Services",
-      description: "Full technical support for construction projects",
+      title: "Subpodratçı Xidmətləri",
+      description: "Tikinti layihələri üçün tam texniki dəstək",
     },
   ];
 
   const values = [
-    { title: "Reliability", description: "Long-term cooperation and responsible execution" },
-    { title: "Quality", description: "High-standard performance and technical accuracy" },
-    { title: "Professional Team", description: "Skilled engineers, certified operators" },
-    { title: "Transparency", description: "Clear terms, fair pricing, mutual trust" },
+    { title: "Etibarlılıq", description: "Uzunmüddətli əməkdaşlıq və məsuliyyətli icra" },
+    { title: "Keyfiyyət", description: "Yüksək standartlı performans və texniki dəqiqlik" },
+    { title: "Peşəkar Komanda", description: "Bacarıqlı mühəndislər, sertifikatlı operatorlar" },
+    { title: "Şəffaflıq", description: "Aydın şərtlər, ədalətli qiymətlər, qarşılıqlı etibar" },
   ];
 
   return (
@@ -45,17 +45,17 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-              Reliable machinery – Professional service – Sustainable results
+              Etibarlı texnika – Peşəkar xidmət – Davamlı nəticələr
             </h1>
             <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl">
-              Your trusted partner in heavy equipment rental, earthworks, and construction services across Azerbaijan.
+              Azərbaycanda ağır texnika icarəsi, torpaq işləri və tikinti xidmətləri üzrə etibarlı tərəfdaşınız.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg" variant="secondary">
-                <NavLink to="/fleet">View Our Fleet</NavLink>
+                <NavLink to="/fleet">Texnika Parkımız</NavLink>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                <NavLink to="/contact">Contact Us</NavLink>
+                <NavLink to="/contact">Bizimlə Əlaqə</NavLink>
               </Button>
             </div>
           </div>
@@ -67,14 +67,14 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl">
             <h2 className="mb-8 text-center text-3xl font-bold text-foreground md:text-4xl">
-              Who We Are
+              Biz Kimik
             </h2>
             <div className="mb-8 text-center text-lg text-muted-foreground">
               <p className="mb-4">
-                "Azel Texnika" LLC is a rapidly growing heavy machinery service company operating in Azerbaijan since 2021.
+                "Azel Texnika" MMC 2021-ci ildən etibarən Azərbaycanda fəaliyyət göstərən sürətlə inkişaf edən ağır texnika xidməti şirkətidir.
               </p>
               <p>
-                We provide machinery rental, earthworks, road construction, infrastructure support and subcontracting services for projects of any scale.
+                Biz istənilən miqyaslı layihələr üçün texnika icarəsi, torpaq işləri, yol tikintisi, infrastruktur dəstəyi və subpodratçı xidmətləri təqdim edirik.
               </p>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
@@ -82,7 +82,7 @@ const Index = () => {
                 <CardContent className="flex items-start gap-3 p-6">
                   <Check className="mt-1 h-5 w-5 flex-shrink-0 text-success" />
                   <div>
-                    <h3 className="font-semibold text-card-foreground">Professional operators & engineers</h3>
+                    <h3 className="font-semibold text-card-foreground">Peşəkar operatorlar və mühəndislər</h3>
                   </div>
                 </CardContent>
               </Card>
@@ -90,7 +90,7 @@ const Index = () => {
                 <CardContent className="flex items-start gap-3 p-6">
                   <Check className="mt-1 h-5 w-5 flex-shrink-0 text-success" />
                   <div>
-                    <h3 className="font-semibold text-card-foreground">Modern machinery fleet</h3>
+                    <h3 className="font-semibold text-card-foreground">Müasir texnika parkı</h3>
                   </div>
                 </CardContent>
               </Card>
@@ -98,7 +98,7 @@ const Index = () => {
                 <CardContent className="flex items-start gap-3 p-6">
                   <Check className="mt-1 h-5 w-5 flex-shrink-0 text-success" />
                   <div>
-                    <h3 className="font-semibold text-card-foreground">Timely and safe project execution</h3>
+                    <h3 className="font-semibold text-card-foreground">Vaxtında və təhlükəsiz layihə icrası</h3>
                   </div>
                 </CardContent>
               </Card>
@@ -111,7 +111,7 @@ const Index = () => {
       <section className="bg-muted py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-12 text-center text-3xl font-bold text-foreground md:text-4xl">
-            Why Choose Us
+            Niyə Bizi Seçməlisiniz
           </h2>
           <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2 lg:grid-cols-4">
             {values.map((value, index) => (
@@ -130,7 +130,7 @@ const Index = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="mb-12 text-center text-3xl font-bold text-foreground md:text-4xl">
-            We Provide
+            Təqdim Etdiyimiz Xidmətlər
           </h2>
           <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service, index) => (
@@ -149,16 +149,16 @@ const Index = () => {
       {/* CTA Section */}
       <section className="bg-primary py-16 text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl">Ready to Start Your Project?</h2>
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">Layihənizə Başlamağa Hazırsınız?</h2>
           <p className="mb-8 text-lg text-primary-foreground/90">
-            Get a quote or rent machinery today
+            Bu gün qiymət təklifi alın və ya texnika icarəyə götürün
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button asChild size="lg" variant="secondary">
-              <NavLink to="/contact">Request a Quote</NavLink>
+              <NavLink to="/contact">Qiymət Təklifi</NavLink>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-              <NavLink to="/fleet">Rent Machinery</NavLink>
+              <NavLink to="/fleet">Texnika İcarəsi</NavLink>
             </Button>
           </div>
         </div>

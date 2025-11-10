@@ -5,10 +5,10 @@ import Footer from "@/components/Footer";
 
 const Projects = () => {
   const services = [
-    "Excavation",
-    "Land leveling",
-    "Roadbed construction",
-    "Technical support and supervision",
+    "Qazma işləri",
+    "Torpaq düzləşdirmə",
+    "Yol yatağı tikintisi",
+    "Texniki dəstək və nəzarət",
   ];
 
   return (
@@ -19,9 +19,9 @@ const Projects = () => {
       <section className="bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] py-16 text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Our Projects</h1>
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Layihələrimiz</h1>
             <p className="text-xl text-primary-foreground/90">
-              Proven track record of successful infrastructure and construction projects
+              Uğurlu infrastruktur və tikinti layihələrində sübut olunmuş iş təcrübəsi
             </p>
           </div>
         </div>
@@ -34,9 +34,9 @@ const Projects = () => {
             <Card className="mb-12">
               <CardContent className="p-8">
                 <p className="mb-6 text-lg text-muted-foreground">
-                  We have successfully operated as a subcontractor in nationwide construction, infrastructure and land development projects since 2021.
+                  2021-ci ildən etibarən ümummilli tikinti, infrastruktur və torpaq inkişafı layihələrində subpodratçı kimi uğurla fəaliyyət göstəririk.
                 </p>
-                <h2 className="mb-6 text-2xl font-bold text-foreground">Our work includes:</h2>
+                <h2 className="mb-6 text-2xl font-bold text-foreground">Görülən işlərimiz:</h2>
                 <div className="grid gap-4 md:grid-cols-2">
                   {services.map((service, index) => (
                     <div key={index} className="flex items-start gap-3">
@@ -50,10 +50,10 @@ const Projects = () => {
 
             <div className="rounded-lg bg-muted p-8 text-center">
               <h3 className="mb-4 text-2xl font-bold text-foreground">
-                Our Track Record
+                İş Təcrübəmiz
               </h3>
               <p className="text-lg text-muted-foreground">
-                Completed and ongoing projects highlight our reliability, technical capability and strong partner reputation across Azerbaijan's construction and infrastructure sectors.
+                Tamamlanmış və davam edən layihələr Azərbaycanın tikinti və infrastruktur sektorlarında etibarlılığımızı, texniki potensialımızı və güclü tərəfdaş reputasiyamızı nümayiş etdirir.
               </p>
             </div>
           </div>

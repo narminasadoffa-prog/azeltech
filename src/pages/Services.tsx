@@ -7,33 +7,33 @@ const Services = () => {
   const services = [
     {
       icon: <Truck className="h-12 w-12" />,
-      title: "Heavy Machinery Rental",
-      items: ["Bulldozers", "Excavators", "Front loaders", "Compactors", "Telescopic handlers"],
-      description: "All equipment is delivered in full working condition and regularly serviced. Short-term and long-term rental options available.",
+      title: "Ağır Texnika İcarəsi",
+      items: ["Buldozerlər", "Ekskavatorlar", "Frontal yükləyicilər", "Sıxlaşdırıcılar", "Teleskopik yükləyicilər"],
+      description: "Bütün avadanlıqlar tam işlək vəziyyətdə təhvil verilir və müntəzəm servis göstərilir. Qısamüddətli və uzunmüddətli icarə variantları mövcuddur.",
     },
     {
       icon: <Mountain className="h-12 w-12" />,
-      title: "Earthworks & Site Preparation",
-      items: ["Excavation", "Land leveling", "Sub-base preparation", "Soil compaction"],
-      description: "Professional execution with experienced operators and engineering control.",
+      title: "Torpaq İşləri və Sahə Hazırlığı",
+      items: ["Qazma işləri", "Torpaq düzləşdirmə", "Altlıq hazırlığı", "Torpaq sıxlaşdırma"],
+      description: "Təcrübəli operatorlar və mühəndis nəzarəti ilə peşəkar icra.",
     },
     {
       icon: <Construction className="h-12 w-12" />,
-      title: "Road Construction",
-      items: ["Roadbed preparation", "Compaction", "Pre-asphalt works"],
-      description: "We provide full technical support for any stage of civil or infrastructure road construction.",
+      title: "Yol Tikintisi",
+      items: ["Yol yatağı hazırlığı", "Sıxlaşdırma işləri", "Asfaltdan əvvəlki işlər"],
+      description: "Mülki və infrastruktur yol tikintisinin istənilən mərhələsi üçün tam texniki dəstək təqdim edirik.",
     },
     {
       icon: <Building className="h-12 w-12" />,
-      title: "Construction & Subcontracting",
-      items: ["Earthworks service", "Machinery logistics", "Industrial construction", "Civil construction"],
-      description: "Providing earthworks, machinery service and logistics in industrial and civil construction projects.",
+      title: "Tikinti və Subpodratçılıq",
+      items: ["Torpaq işləri xidməti", "Texnika logistikası", "Sənaye tikintisi", "Mülki tikinti"],
+      description: "Sənaye və mülki tikinti layihələrində torpaq işləri, texnika xidməti və logistika təminatı.",
     },
     {
       icon: <Map className="h-12 w-12" />,
-      title: "Land Planning & Project Support",
-      items: ["Land planning according to design", "Relief leveling", "Technical supervision"],
-      description: "Land planning according to project design with professional technical supervision.",
+      title: "Torpaq Planlaşdırması və Layihə Dəstəyi",
+      items: ["Layihəyə uyğun torpaq planlaşdırması", "Relyef düzləşdirmə", "Texniki nəzarət"],
+      description: "Peşəkar texniki nəzarət ilə layihə dizaynına uyğun torpaq planlaşdırması.",
     },
   ];
 
@@ -45,9 +45,9 @@ const Services = () => {
       <section className="bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] py-16 text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Our Services</h1>
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Xidmətlərimiz</h1>
             <p className="text-xl text-primary-foreground/90">
-              Comprehensive heavy machinery and construction services for projects of any scale
+              İstənilən miqyaslı layihələr üçün kompleks ağır texnika və tikinti xidmətləri
             </p>
           </div>
         </div>

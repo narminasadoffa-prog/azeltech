@@ -7,12 +7,12 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
-    { to: "/services", label: "Services" },
-    { to: "/fleet", label: "Our Fleet" },
-    { to: "/projects", label: "Projects" },
-    { to: "/contact", label: "Contact" },
+    { to: "/", label: "Ana Səhifə" },
+    { to: "/about", label: "Haqqımızda" },
+    { to: "/services", label: "Xidmətlər" },
+    { to: "/fleet", label: "Texnika Parkı" },
+    { to: "/projects", label: "Layihələr" },
+    { to: "/contact", label: "Əlaqə" },
   ];
 
   return (
@@ -35,7 +35,7 @@ const Header = () => {
             </NavLink>
           ))}
           <Button asChild variant="default" size="sm">
-            <NavLink to="/contact">Get Quote</NavLink>
+            <NavLink to="/contact">Qiymət Təklifi</NavLink>
           </Button>
         </div>
 
@@ -66,7 +66,7 @@ const Header = () => {
             ))}
             <Button asChild variant="default" size="sm" className="w-full">
               <NavLink to="/contact" onClick={() => setMobileMenuOpen(false)}>
-                Get Quote
+                Qiymət Təklifi
               </NavLink>
             </Button>
           </div>

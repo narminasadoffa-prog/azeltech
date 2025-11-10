@@ -6,59 +6,59 @@ import Footer from "@/components/Footer";
 const Fleet = () => {
   const equipment = [
     {
-      category: "Telescopic Loaders",
+      category: "Teleskopik Yükləyicilər",
       items: [
         {
           name: "Genie 4017",
           manufacturer: "Genie",
           year: "2023",
           specs: [
-            "Lifting capacity: 3.5 t",
-            "Maximum height: 17 m",
-            "Engine power: 74 kW",
+            "Qaldırma tutumu: 3.5 t",
+            "Maksimum hündürlük: 17 m",
+            "Mühərrik gücü: 74 kW",
           ],
         },
       ],
     },
     {
-      category: "Backhoe Loaders",
+      category: "Ekskavator-Yükləyicilər",
       items: [
         {
-          name: "Volvo Backhoe Loader",
+          name: "Volvo Ekskavator-Yükləyici",
           manufacturer: "Volvo",
           year: "2025",
           specs: [
-            "Operating weight: 3.0–3.5 t",
-            "Engine power: 74–92 kW",
-            "Bucket capacity: 1.5–2.0 m³",
-            "Maximum digging depth: 4 m",
+            "İşləmə çəkisi: 3.0–3.5 t",
+            "Mühərrik gücü: 74–92 kW",
+            "Kova tutumu: 1.5–2.0 m³",
+            "Maksimum qazma dərinliyi: 4 m",
           ],
         },
       ],
     },
     {
-      category: "Bulldozers",
+      category: "Buldozerlər",
       items: [
         {
           name: "Shantui SD32",
           manufacturer: "Shantui",
           year: "2018",
           specs: [
-            "Operating weight: 43 t",
-            "Engine power: 235 kW",
-            "Blade width: 4.2 m",
-            "Maximum earth pushing: 400 m³/h",
+            "İşləmə çəkisi: 43 t",
+            "Mühərrik gücü: 235 kW",
+            "Bıçaq eni: 4.2 m",
+            "Maksimum torpaq itələmə: 400 m³/saat",
           ],
         },
         {
-          name: "Shantui SD22 (2 units)",
+          name: "Shantui SD22 (2 ədəd)",
           manufacturer: "Shantui",
           year: "2020",
           specs: [
-            "Operating weight: 27 t",
-            "Engine power: 165 kW",
-            "Blade width: 3.9 m",
-            "Maximum earth pushing: 300 m³/h",
+            "İşləmə çəkisi: 27 t",
+            "Mühərrik gücü: 165 kW",
+            "Bıçaq eni: 3.9 m",
+            "Maksimum torpaq itələmə: 300 m³/saat",
           ],
         },
         {
@@ -66,10 +66,10 @@ const Fleet = () => {
           manufacturer: "Komatsu",
           year: "",
           specs: [
-            "Operating weight: 36 t",
-            "Engine power: 235 kW",
-            "Blade width: 4.2 m",
-            "Maximum earth pushing: 420 m³/h",
+            "İşləmə çəkisi: 36 t",
+            "Mühərrik gücü: 235 kW",
+            "Bıçaq eni: 4.2 m",
+            "Maksimum torpaq itələmə: 420 m³/saat",
           ],
         },
         {
@@ -77,26 +77,26 @@ const Fleet = () => {
           manufacturer: "Komatsu",
           year: "2012",
           specs: [
-            "Operating weight: 53 t",
-            "Engine power: 320 kW",
-            "Blade width: 4.8 m",
-            "Maximum earth pushing: 600 m³/h",
+            "İşləmə çəkisi: 53 t",
+            "Mühərrik gücü: 320 kW",
+            "Bıçaq eni: 4.8 m",
+            "Maksimum torpaq itələmə: 600 m³/saat",
           ],
         },
       ],
     },
     {
-      category: "Excavators",
+      category: "Ekskavatorlar",
       items: [
         {
-          name: "Hyundai 210 (wheeled)",
+          name: "Hyundai 210 (təkərli)",
           manufacturer: "Hyundai",
           year: "2016",
           specs: [
-            "Operating weight: 21 t",
-            "Engine power: 110 kW",
-            "Working radius: 9.8 m",
-            "Bucket capacity: 1.0 m³",
+            "İşləmə çəkisi: 21 t",
+            "Mühərrik gücü: 110 kW",
+            "İş radiusu: 9.8 m",
+            "Kova tutumu: 1.0 m³",
           ],
         },
         {
@@ -104,10 +104,10 @@ const Fleet = () => {
           manufacturer: "Doosan",
           year: "2016",
           specs: [
-            "Operating weight: 30 t",
-            "Engine power: 165 kW",
-            "Working radius: 10 m",
-            "Bucket capacity: 1.5 m³",
+            "İşləmə çəkisi: 30 t",
+            "Mühərrik gücü: 165 kW",
+            "İş radiusu: 10 m",
+            "Kova tutumu: 1.5 m³",
           ],
         },
         {
@@ -115,10 +115,10 @@ const Fleet = () => {
           manufacturer: "Doosan",
           year: "2012",
           specs: [
-            "Operating weight: 34 t",
-            "Engine power: 200 kW",
-            "Working radius: 10.5 m",
-            "Bucket capacity: 1.6 m³",
+            "İşləmə çəkisi: 34 t",
+            "Mühərrik gücü: 200 kW",
+            "İş radiusu: 10.5 m",
+            "Kova tutumu: 1.6 m³",
           ],
         },
         {
@@ -126,10 +126,10 @@ const Fleet = () => {
           manufacturer: "New Holland",
           year: "2022",
           specs: [
-            "Operating weight: 30 t",
-            "Engine power: 110 kW",
-            "Working radius: 9.8 m",
-            "Bucket capacity: 1.0–1.2 m³",
+            "İşləmə çəkisi: 30 t",
+            "Mühərrik gücü: 110 kW",
+            "İş radiusu: 9.8 m",
+            "Kova tutumu: 1.0–1.2 m³",
           ],
         },
         {
@@ -137,80 +137,80 @@ const Fleet = () => {
           manufacturer: "New Holland",
           year: "2019",
           specs: [
-            "Operating weight: 24 t",
-            "Engine power: 90 kW",
-            "Working radius: 8.5 m",
-            "Bucket capacity: 0.9–1.1 m³",
+            "İşləmə çəkisi: 24 t",
+            "Mühərrik gücü: 90 kW",
+            "İş radiusu: 8.5 m",
+            "Kova tutumu: 0.9–1.1 m³",
           ],
         },
       ],
     },
     {
-      category: "Front Loaders",
+      category: "Frontal Yükləyicilər",
       items: [
         {
           name: "SDLG 956",
           manufacturer: "SDLG",
           year: "2022",
           specs: [
-            "Operating weight: 5.6 t",
-            "Engine power: 85 kW",
-            "Bucket capacity: 2.0–2.3 m³",
-            "Maximum lift height: 3.2 m",
+            "İşləmə çəkisi: 5.6 t",
+            "Mühərrik gücü: 85 kW",
+            "Kova tutumu: 2.0–2.3 m³",
+            "Maksimum qaldırma hündürlüyü: 3.2 m",
           ],
         },
       ],
     },
     {
-      category: "Compactors",
+      category: "Sıxlaşdırıcılar",
       items: [
         {
-          name: "XCMG Compactor",
+          name: "XCMG Sıxlaşdırıcı",
           manufacturer: "XCMG",
           year: "2018",
           specs: [
-            "Operating weight: 12–15 t",
-            "Engine power: 92 kW",
-            "Drum width: 2.1 m",
-            "Maximum compaction force: 120 kN",
+            "İşləmə çəkisi: 12–15 t",
+            "Mühərrik gücü: 92 kW",
+            "Barabın eni: 2.1 m",
+            "Maksimum sıxlaşdırma qüvvəsi: 120 kN",
           ],
         },
         {
-          name: "Liugong Compactor",
+          name: "Liugong Sıxlaşdırıcı",
           manufacturer: "Liugong",
           year: "2023",
           specs: [
-            "Operating weight: 10–14 t",
-            "Engine power: 85 kW",
-            "Drum width: 2.0 m",
-            "Maximum compaction force: 110 kN",
+            "İşləmə çəkisi: 10–14 t",
+            "Mühərrik gücü: 85 kW",
+            "Barabın eni: 2.0 m",
+            "Maksimum sıxlaşdırma qüvvəsi: 110 kN",
           ],
         },
         {
-          name: "Dynapac Compactor",
+          name: "Dynapac Sıxlaşdırıcı",
           manufacturer: "Dynapac",
           year: "2013",
           specs: [
-            "Operating weight: 14 t",
-            "Engine power: 95 kW",
-            "Drum width: 2.2 m",
-            "Maximum compaction force: 130 kN",
+            "İşləmə çəkisi: 14 t",
+            "Mühərrik gücü: 95 kW",
+            "Barabın eni: 2.2 m",
+            "Maksimum sıxlaşdırma qüvvəsi: 130 kN",
           ],
         },
       ],
     },
     {
-      category: "Graders",
+      category: "Greyderlər",
       items: [
         {
           name: "Liugong 418",
           manufacturer: "Liugong",
           year: "2024",
           specs: [
-            "Operating weight: 16 t",
-            "Engine power: 125 kW",
-            "Blade width: 4.2 m",
-            "Maximum lift height: 0.4 m",
+            "İşləmə çəkisi: 16 t",
+            "Mühərrik gücü: 125 kW",
+            "Bıçaq eni: 4.2 m",
+            "Maksimum qaldırma hündürlüyü: 0.4 m",
           ],
         },
       ],
@@ -225,9 +225,9 @@ const Fleet = () => {
       <section className="bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] py-16 text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Our Fleet</h1>
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Texnika Parkımız</h1>
             <p className="text-xl text-primary-foreground/90">
-              Modern equipment. Experienced operators. Reliable performance.
+              Müasir avadanlıq. Təcrübəli operatorlar. Etibarlı performans.
             </p>
           </div>
         </div>
@@ -238,7 +238,7 @@ const Fleet = () => {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-lg text-muted-foreground">
-              Our machinery fleet consists of modern heavy equipment from leading global brands. All machines undergo regular inspection and are operated by qualified specialists.
+              Texnika parkımız aparıcı qlobal brendlərin müasir ağır avadanlıqlarından ibarətdir. Bütün maşınlar mütəmadi olaraq yoxlanılır və ixtisaslı mütəxəssislər tərəfindən idarə olunur.
             </p>
           </div>
         </div>
