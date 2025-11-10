@@ -11,6 +11,81 @@ const Projects = () => {
     "Texniki dəstək və nəzarət",
   ];
 
+  const projects = [
+    {
+      no: "1",
+      name: "Daşkəsən qızıl mədəni layihəsi",
+      contractor: "“MAQRO CONSTRUCTION” MMC",
+      period: "2022–2023",
+    },
+    {
+      no: "2",
+      name: "Şuşa şəhərində yeni yaşayış massivinin tikintisi",
+      contractor: "“CONCO” QSC",
+      period: "2023–2024",
+    },
+    {
+      no: "3",
+      name: "Daşkəsən–Kəlbəcər hərbi yolunun tikintisi",
+      contractor: "“NORT VEST KONSTRAKŞN” MMC",
+      period: "2023",
+    },
+    {
+      no: "4",
+      name: "Böyükşor–Pirşağı avtomobil yolunun tikintisi",
+      contractor: "“AZ.YOL-TİKİNTİ” MMC",
+      period: "2024",
+    },
+    {
+      no: "5",
+      name: "Masazır duz gölünün ətrafının təmizlənməsi",
+      contractor: "“AZƏRBAYCAN DUZ İSTEHSALAT BİRLİYİ” QSC",
+      period: "2024",
+    },
+    {
+      no: "6",
+      name: "Ələt Azad İqtisadi Zonasında ərazinin düzləşdirilməsi",
+      contractor: "“Özgün Yapı Sanayi ve Ticaret A.Ş.” (Azərbaycan filialı)",
+      period: "2024",
+    },
+    {
+      no: "7",
+      name: "Ələt Azad İqtisadi Zonasında ərazinin düzləşdirilməsi",
+      contractor: "“AZ-MAŞ” QSC",
+      period: "2024",
+    },
+    {
+      no: "8",
+      name: "Ağdam 3-cü yaşayış massivinin inşası",
+      contractor: "“AZƏRAQRARTİKİNTİ” ASC",
+      period: "2025",
+    },
+    {
+      no: "9",
+      name: "Biləsuvar rayonunda günəş panellərinin quraşdırılması sahəsində ərazinin hazırlanması",
+      contractor: "“AZ.YOL-TİKİNTİ” MMC",
+      period: "2025 – davam edir",
+    },
+    {
+      no: "10",
+      name: "Neftçala rayonunda günəş panellərinin quraşdırılması sahəsində ərazinin hazırlanması",
+      contractor: "“AZ.YOL-TİKİNTİ” MMC",
+      period: "2025 – davam edir",
+    },
+    {
+      no: "11",
+      name: "Ələt Azad İqtisadi Zonasında ərazinin düzləşdirilməsi",
+      contractor: "“ENERGY SERVICE GROUP” MMC",
+      period: "2025 – davam edir",
+    },
+    {
+      no: "12",
+      name: "Seebreeze ərazisində torpaq işləri",
+      contractor: "“PARLAQ İNŞAAT” MMC",
+      period: "2025 – davam edir",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -44,6 +119,58 @@ const Projects = () => {
                       <span className="text-card-foreground">{service}</span>
                     </div>
                   ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="mb-12">
+              <CardContent className="p-8">
+                <h2 className="mb-4 text-3xl font-bold text-foreground">Layihələr</h2>
+                <p className="mb-6 text-lg text-muted-foreground">
+                  “Azel Texnika” MMC 2021-ci ildən etibarən ölkə üzrə müxtəlif miqyaslı tikinti, infrastruktur və ərazi hazırlığı layihələrində subpodratçı kimi uğurla fəaliyyət göstərir. Aşağıda şirkətimizin iştirak etdiyi əsas layihələrin bir hissəsi təqdim olunur:
+                </p>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse text-left text-sm md:text-base">
+                    <thead>
+                      <tr className="bg-muted">
+                        <th className="border border-border px-4 py-3 font-semibold text-foreground">
+                          №
+                        </th>
+                        <th className="border border-border px-4 py-3 font-semibold text-foreground">
+                          Layihə
+                        </th>
+                        <th className="border border-border px-4 py-3 font-semibold text-foreground">
+                          Podratçı şirkət
+                        </th>
+                        <th className="border border-border px-4 py-3 font-semibold text-foreground">
+                          Dövr
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {projects.map((project) => (
+                        <tr key={project.no} className="odd:bg-background even:bg-muted/40">
+                          <td className="border border-border px-4 py-3 text-foreground">
+                            {project.no}
+                          </td>
+                          <td className="border border-border px-4 py-3 text-foreground">
+                            {project.name}
+                          </td>
+                          <td className="border border-border px-4 py-3 text-foreground">
+                            {project.contractor}
+                          </td>
+                          <td className="border border-border px-4 py-3 text-foreground">
+                            {project.period}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="mt-6 border-t border-border pt-6">
+                  <p className="text-lg text-muted-foreground">
+                    “Azel Texnika” MMC yuxarıda göstərilən layihələrdə torpaq qazma, ərazi düzləndirmə, yol əsasının hazırlanması və digər texniki xidmətlərin icrasını həyata keçirmişdir. Bizim məqsədimiz — hər bir layihədə vaxtında, təhlükəsiz və yüksək keyfiyyətlə icranı təmin etməkdir. Davam edən və tamamlanmış işlərimiz şirkətimizin peşəkarlığını, texniki potensialını və etibarlı tərəfdaş imicini əks etdirir.
+                  </p>
                 </div>
               </CardContent>
             </Card>
