@@ -1,9 +1,12 @@
 import { NavLink } from "./NavLink";
 import { Button } from "./ui/button";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileFleetOpen, setMobileFleetOpen] = useState(false);
 
@@ -13,15 +16,23 @@ const Header = () => {
     }
   }, [mobileMenuOpen]);
 
+  const activeFleetHash = useMemo(() => {
+    if (!location.pathname.startsWith("/fleet")) {
+      return null;
+    }
+
+    return (location.hash && location.hash !== "#") ? location.hash : "#all";
+  }, [location.hash, location.pathname]);
+
   const fleetDropdownItems = [
-    { to: "/fleet#all", label: "Hamısı" },
-    { to: "/fleet#telehandlers", label: "Teleskopik yükləyicilər" },
-    { to: "/fleet#backhoe", label: "Bekoladerlər" },
-    { to: "/fleet#bulldozers", label: "Buldozerlər" },
-    { to: "/fleet#excavators", label: "Ekskavatorlar" },
-    { to: "/fleet#loaders", label: "Frontal yükləyicilər" },
-    { to: "/fleet#rollers", label: "Katoklar" },
-    { to: "/fleet#graders", label: "Qreyderlər" },
+    { to: "/fleet#all", label: "Hamısı", value: "all" },
+    { to: "/fleet#telehandlers", label: "Teleskopik yükləyicilər", value: "telehandlers" },
+    { to: "/fleet#backhoe", label: "Bekoladerlər", value: "backhoe" },
+    { to: "/fleet#bulldozers", label: "Buldozerlər", value: "bulldozers" },
+    { to: "/fleet#excavators", label: "Ekskavatorlar", value: "excavators" },
+    { to: "/fleet#loaders", label: "Frontal yükləyicilər", value: "loaders" },
+    { to: "/fleet#rollers", label: "Katoklar", value: "rollers" },
+    { to: "/fleet#graders", label: "Qreyderlər", value: "graders" },
   ];
 
   const navLinks = [
@@ -60,8 +71,15 @@ const Header = () => {
                         <li key={item.to}>
                           <NavLink
                             to={item.to}
-                            className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted/70 hover:text-primary"
-                            activeClassName="text-primary"
+                            className={({ isActive }) =>
+                              cn(
+                                "block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-muted/70 hover:text-primary",
+                                activeFleetHash === `#${item.value}` &&
+                                  "bg-primary/10 text-primary hover:bg-primary/20",
+                                isActive && "text-primary",
+                              )
+                            }
+                            end
                           >
                             {item.label}
                           </NavLink>
@@ -132,7 +150,10 @@ const Header = () => {
                         <NavLink
                           key={item.to}
                           to={item.to}
-                          className="block text-sm text-muted-foreground transition-colors hover:text-primary"
+                          className={cn(
+                            "block text-sm text-muted-foreground transition-colors hover:text-primary",
+                            activeFleetHash === `#${item.value}` && "text-primary font-semibold",
+                          )}
                           activeClassName="text-primary"
                           onClick={() => {
                             setMobileMenuOpen(false);
