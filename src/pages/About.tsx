@@ -4,57 +4,87 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const About = () => {
-  const features = [
-    "Vaxtında və təhlükəsiz icra",
-    "Texniki dəqiqlik",
-    "Peşəkar nəzarət",
-    "Qənaətcil və effektiv həllər",
+  const principles = [
+    {
+      title: "Etibarlılıq",
+      description: "Müştərilərlə uzunmüddətli əməkdaşlıq və məsuliyyətli yanaşma.",
+    },
+    {
+      title: "Keyfiyyət",
+      description: "Yüksək standartlara uyğun icra və texniki dəqiqlik.",
+    },
+    {
+      title: "Peşəkarlıq",
+      description: "Təcrübəli mühəndislər və operator heyəti.",
+    },
+    {
+      title: "Şəffaflıq",
+      description: "Açıq şərtlərlə əməkdaşlıq və qarşılıqlı etimad.",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] py-16 text-primary-foreground">
+      <section className="bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] py-20 text-primary-foreground">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Azel Texnika MMC Haqqında</h1>
-            <p className="text-xl text-primary-foreground/90">
-              Şəffaflıq, dəqiqlik və etibarlılıq — bizim işimizin əsasıdır.
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-sm uppercase tracking-[0.4em] text-primary-foreground/80">
+              Şəffaflıq · Dəqiqlik · Etibarlılıq
+            </p>
+            <h1 className="mt-4 text-4xl font-bold md:text-5xl">
+              Azərbaycanın ağır texnika sahəsində peşəkar tərəfdaşınız
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      {/* Company Mission */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-4xl space-y-6 text-lg leading-relaxed text-muted-foreground">
+            <p>
+              “Azel Texnika” MMC 2021-ci ildən etibarən Azərbaycanda ağır texnika icarəsi, torpaq
+              işləri, yol inşaatı və tikinti layihələrində texnika dəstəyi göstərən dinamik inkişaf
+              edən şirkətdir. Şirkətimizin missiyası – Azərbaycanın iqtisadi inkişafına töhfə verən
+              layihələrin icrasında müasir texnika və peşəkar kadr potensialı ilə iştirak etməkdir.
+            </p>
+            <p>
+              Şirkətimizin balansında müxtəlif markalı buldozerlər, ekskavatorlar, qreyderlər,
+              teleskopik yükləyicilər, katoklar və digər texnikalar mövcuddur. Yüksək ixtisaslı
+              mütəxəssislər və müasir texnika parkı sayəsində biz istənilən mürəkkəblikdə layihələrin
+              icrasını təmin edirik.
+            </p>
+            <p>
+              Müasir texnika parkımız, təcrübəli mühəndis heyətimiz və yüksək icra intizamımız
+              sayəsində keyfiyyətli, operativ və etibarlı xidmət təqdim edirik. Bizim məqsədimiz –
+              müştərilərimizə keyfiyyətli xidmət, vaxtında icra və maksimum effektivlik təmin etməkdir.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16">
+      {/* Principles */}
+      <section className="bg-muted py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl">
-            <div className="mb-12 space-y-6 text-lg text-muted-foreground">
-              <p>
-                "Azel Texnika" MMC 2021-ci ildən etibarən Azərbaycanda ağır texnika icarəsi və tikinti dəstəyi xidmətləri göstərir. Missiyamız müasir avadanlıq və peşəkar heyət ilə ölkənin inkişafına töhfə verməkdir.
-              </p>
-            </div>
-
-            <Card className="mb-12">
-              <CardContent className="p-8">
-                <h2 className="mb-6 text-2xl font-bold text-foreground">Biz təmin edirik:</h2>
-                <div className="grid gap-4 md:grid-cols-2">
-                  {features.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <Check className="mt-1 h-5 w-5 flex-shrink-0 text-success" />
-                      <span className="text-card-foreground">{feature}</span>
+            <h2 className="mb-10 text-center text-3xl font-bold text-foreground">
+              Biz fəaliyyətimizi bu prinsiplər üzərində qurmuşuq
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              {principles.map((principle) => (
+                <Card key={principle.title} className="h-full">
+                  <CardContent className="p-6">
+                    <div className="mb-4 flex items-center gap-3">
+                      <Check className="h-6 w-6 text-success" />
+                      <h3 className="text-xl font-semibold text-foreground">{principle.title}</h3>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="space-y-6 text-lg text-muted-foreground">
-              <p>
-                Texnika parkımıza buldozerlər, ekskavatorlar, yükləyicilər, greyderlər, sıxlaşdırıcılar, teleskopik yükləyicilər və daha çoxu daxildir — bu bizə istənilən mürəkkəblikdə layihələri icra etməyə imkan verir.
-              </p>
+                    <p className="text-muted-foreground">{principle.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </div>
@@ -63,9 +93,7 @@ const About = () => {
       {/* Bottom Banner */}
       <section className="bg-primary py-12 text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold md:text-4xl">
-            Etibarlı texnika – Peşəkar xidmət – Davamlı nəticələr
-          </h2>
+          <h2 className="text-3xl font-bold md:text-4xl">Etibarlı texnika – Peşəkar xidmət – Dayanıqlı nəticə</h2>
         </div>
       </section>
 
