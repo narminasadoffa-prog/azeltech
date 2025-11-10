@@ -246,11 +246,34 @@ const Fleet = () => {
           <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="relative z-10 container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
             <p className="mb-4 text-sm uppercase tracking-[0.35em] text-white/70">
               Etibarlı texnika, peşəkar xidmət
             </p>
-            <h1 className="text-4xl font-bold md:text-5xl">Texnika Parkımız</h1>
+            <div
+              className="group relative inline-flex flex-col items-center"
+              tabIndex={0}
+            >
+              <h1 className="text-4xl font-bold md:text-5xl">Texnika Parkımız</h1>
+              <div className="pointer-events-none absolute top-full mt-3 w-56 -translate-y-1 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div className="rounded-xl border border-white/20 bg-black/75 p-4 text-left shadow-xl backdrop-blur">
+                  <p className="mb-3 text-xs uppercase tracking-[0.35em] text-white/60">
+                    Kateqoriyalar
+                  </p>
+                  <ul className="space-y-2 text-sm text-white/90">
+                    {categories.map((category) => (
+                      <li
+                        key={category.value}
+                        className="flex items-start gap-2"
+                      >
+                        <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+                        <span>{category.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -298,6 +321,11 @@ const Fleet = () => {
                     {category.machines.map((machine) => (
                       <Card key={machine.name} className="h-full">
                         <CardContent className="flex h-full flex-col gap-4 p-6">
+                          <div className="overflow-hidden rounded-lg border border-dashed border-muted-foreground/40 bg-muted/40">
+                            <div className="flex h-40 items-center justify-center text-sm font-medium text-muted-foreground/70">
+                              Şəkil üçün yer
+                            </div>
+                          </div>
                           <div>
                             <h4 className="text-xl font-semibold text-foreground">{machine.name}</h4>
                             <p className="mt-2 text-sm font-medium text-primary">{machine.headline}</p>
