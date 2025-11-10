@@ -14,13 +14,14 @@ const Header = () => {
   }, [mobileMenuOpen]);
 
   const fleetDropdownItems = [
-    { to: "/fleet#telehandlers", label: "İlə teleskopik yükləyicilər" },
-    { to: "/fleet#backhoe", label: "İlə bekoladerlər" },
-    { to: "/fleet#bulldozers", label: "İlə buldozerlər" },
-    { to: "/fleet#excavators", label: "İlə ekskavatorlar" },
-    { to: "/fleet#loaders", label: "İlə frontal yükləyicilər" },
-    { to: "/fleet#rollers", label: "İlə katoklar" },
-    { to: "/fleet#graders", label: "İlə qreyderlər" },
+    { to: "/fleet#all", label: "Hamısı" },
+    { to: "/fleet#telehandlers", label: "Teleskopik yükləyicilər" },
+    { to: "/fleet#backhoe", label: "Bekoladerlər" },
+    { to: "/fleet#bulldozers", label: "Buldozerlər" },
+    { to: "/fleet#excavators", label: "Ekskavatorlar" },
+    { to: "/fleet#loaders", label: "Frontal yükləyicilər" },
+    { to: "/fleet#rollers", label: "Katoklar" },
+    { to: "/fleet#graders", label: "Qreyderlər" },
   ];
 
   const navLinks = [

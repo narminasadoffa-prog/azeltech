@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
 const Fleet = () => {
-  const categories = [
+  const baseCategories = [
     {
       value: "telehandlers",
       label: "Teleskopik yükləyicilər",
@@ -231,6 +231,27 @@ const Fleet = () => {
     },
   ];
 
+  const categories = [
+    {
+      value: "all",
+      label: "Hamısı",
+      description: "Bütün texnika parkımızın ümumi mənzərəsi ilə tanış olun.",
+      machines: baseCategories.flatMap((category) =>
+        category.machines.map((machine) => ({
+          ...machine,
+          categoryLabel: category.label,
+        }))
+      ),
+    },
+    ...baseCategories.map((category) => ({
+      ...category,
+      machines: category.machines.map((machine) => ({
+        ...machine,
+        categoryLabel: category.label,
+      })),
+    })),
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
@@ -328,7 +349,12 @@ const Fleet = () => {
                               Şəkil üçün yer
                             </div>
                           </div>
-                          <div>
+                          <div className="space-y-2">
+                            {machine.categoryLabel && (
+                              <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+                                {machine.categoryLabel}
+                              </span>
+                            )}
                             <h4 className="text-xl font-semibold text-foreground">{machine.name}</h4>
                             <p className="mt-2 text-sm font-medium text-primary">{machine.headline}</p>
                           </div>
