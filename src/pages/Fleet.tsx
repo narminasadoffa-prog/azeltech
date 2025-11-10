@@ -1,234 +1,223 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Wrench } from "lucide-react";
-import Header from "@/components/Header";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const Fleet = () => {
-  const equipment = [
+  const machines = [
     {
-      category: "Teleskopik Yükləyicilər",
-      items: [
-        {
-          name: "Genie 4017",
-          manufacturer: "Genie",
-          year: "2023",
-          specs: [
-            "Qaldırma tutumu: 3.5 t",
-            "Maksimum hündürlük: 17 m",
-            "Mühərrik gücü: 74 kW",
-          ],
-        },
+      value: "genie-4017",
+      title: "Teleskopik yükləyici – Genie 4017",
+      headline: "İş yükü: 3.5 t",
+      specs: [
+        "Maksimal hündürlük: 17 m",
+        "Mühərrik gücü: 74 kVt",
+        "Yük qaldırma hündürlüyü: 17 m",
+        "İstehsalçı: Genie",
+        "İstehsal ili: 2023",
       ],
     },
     {
-      category: "Ekskavator-Yükləyicilər",
-      items: [
-        {
-          name: "Volvo Ekskavator-Yükləyici",
-          manufacturer: "Volvo",
-          year: "2025",
-          specs: [
-            "İşləmə çəkisi: 3.0–3.5 t",
-            "Mühərrik gücü: 74–92 kW",
-            "Kova tutumu: 1.5–2.0 m³",
-            "Maksimum qazma dərinliyi: 4 m",
-          ],
-        },
+      value: "volvo-backhoe",
+      title: "Volvo Bekolader – [Model əlavə edin]",
+      headline: "İş yükü: 3.0–3.5 t",
+      specs: [
+        "Mühərrik gücü: 74–92 kVt",
+        "Kova tutumu: 1.5–2.0 m³",
+        "Maksimal qazma dərinliyi: 4 m",
+        "İstehsalçı: Volvo",
+        "İstehsal ili: 2025",
       ],
     },
     {
-      category: "Buldozerlər",
-      items: [
-        {
-          name: "Shantui SD32",
-          manufacturer: "Shantui",
-          year: "2018",
-          specs: [
-            "İşləmə çəkisi: 43 t",
-            "Mühərrik gücü: 235 kW",
-            "Bıçaq eni: 4.2 m",
-            "Maksimum torpaq itələmə: 400 m³/saat",
-          ],
-        },
-        {
-          name: "Shantui SD22 (2 ədəd)",
-          manufacturer: "Shantui",
-          year: "2020",
-          specs: [
-            "İşləmə çəkisi: 27 t",
-            "Mühərrik gücü: 165 kW",
-            "Bıçaq eni: 3.9 m",
-            "Maksimum torpaq itələmə: 300 m³/saat",
-          ],
-        },
-        {
-          name: "Komatsu D155",
-          manufacturer: "Komatsu",
-          year: "",
-          specs: [
-            "İşləmə çəkisi: 36 t",
-            "Mühərrik gücü: 235 kW",
-            "Bıçaq eni: 4.2 m",
-            "Maksimum torpaq itələmə: 420 m³/saat",
-          ],
-        },
-        {
-          name: "Komatsu D355",
-          manufacturer: "Komatsu",
-          year: "2012",
-          specs: [
-            "İşləmə çəkisi: 53 t",
-            "Mühərrik gücü: 320 kW",
-            "Bıçaq eni: 4.8 m",
-            "Maksimum torpaq itələmə: 600 m³/saat",
-          ],
-        },
+      value: "shantui-sd32",
+      title: "Shantui SD32 Buldozer",
+      headline: "İş çəkisi: 43 t",
+      specs: [
+        "Mühərrik gücü: 235 kVt",
+        "Lame eni: 4.2 m",
+        "Maksimal torpaq itələmə: 400 m³/saat",
+        "İstehsalçı: Shantui",
+        "İstehsal ili: 2018",
       ],
     },
     {
-      category: "Ekskavatorlar",
-      items: [
-        {
-          name: "Hyundai 210 (təkərli)",
-          manufacturer: "Hyundai",
-          year: "2016",
-          specs: [
-            "İşləmə çəkisi: 21 t",
-            "Mühərrik gücü: 110 kW",
-            "İş radiusu: 9.8 m",
-            "Kova tutumu: 1.0 m³",
-          ],
-        },
-        {
-          name: "Doosan DX300",
-          manufacturer: "Doosan",
-          year: "2016",
-          specs: [
-            "İşləmə çəkisi: 30 t",
-            "Mühərrik gücü: 165 kW",
-            "İş radiusu: 10 m",
-            "Kova tutumu: 1.5 m³",
-          ],
-        },
-        {
-          name: "Doosan DX340 Crawler",
-          manufacturer: "Doosan",
-          year: "2012",
-          specs: [
-            "İşləmə çəkisi: 34 t",
-            "Mühərrik gücü: 200 kW",
-            "İş radiusu: 10.5 m",
-            "Kova tutumu: 1.6 m³",
-          ],
-        },
-        {
-          name: "New Holland 305",
-          manufacturer: "New Holland",
-          year: "2022",
-          specs: [
-            "İşləmə çəkisi: 30 t",
-            "Mühərrik gücü: 110 kW",
-            "İş radiusu: 9.8 m",
-            "Kova tutumu: 1.0–1.2 m³",
-          ],
-        },
-        {
-          name: "New Holland 925 Excavator-Rockson",
-          manufacturer: "New Holland",
-          year: "2019",
-          specs: [
-            "İşləmə çəkisi: 24 t",
-            "Mühərrik gücü: 90 kW",
-            "İş radiusu: 8.5 m",
-            "Kova tutumu: 0.9–1.1 m³",
-          ],
-        },
+      value: "shantui-sd22",
+      title: "Shantui SD22 Buldozer (2 ədəd)",
+      headline: "İş çəkisi: 27 t",
+      specs: [
+        "Mühərrik gücü: 165 kVt",
+        "Lame eni: 3.9 m",
+        "Maksimal torpaq itələmə: 300 m³/saat",
+        "İstehsalçı: Shantui",
+        "İstehsal ili: 2020",
       ],
     },
     {
-      category: "Frontal Yükləyicilər",
-      items: [
-        {
-          name: "SDLG 956",
-          manufacturer: "SDLG",
-          year: "2022",
-          specs: [
-            "İşləmə çəkisi: 5.6 t",
-            "Mühərrik gücü: 85 kW",
-            "Kova tutumu: 2.0–2.3 m³",
-            "Maksimum qaldırma hündürlüyü: 3.2 m",
-          ],
-        },
+      value: "hyundai-210",
+      title: "Hyundai 210 (8 təkərli) Ekskavator",
+      headline: "İş çəkisi: 21 t",
+      specs: [
+        "Mühərrik gücü: 110 kVt",
+        "Əsas qazma radiusu: 9.8 m",
+        "Kova tutumu: 1.0 m³",
+        "İstehsalçı: Hyundai",
+        "İstehsal ili: 2016",
       ],
     },
     {
-      category: "Sıxlaşdırıcılar",
-      items: [
-        {
-          name: "XCMG Sıxlaşdırıcı",
-          manufacturer: "XCMG",
-          year: "2018",
-          specs: [
-            "İşləmə çəkisi: 12–15 t",
-            "Mühərrik gücü: 92 kW",
-            "Barabın eni: 2.1 m",
-            "Maksimum sıxlaşdırma qüvvəsi: 120 kN",
-          ],
-        },
-        {
-          name: "Liugong Sıxlaşdırıcı",
-          manufacturer: "Liugong",
-          year: "2023",
-          specs: [
-            "İşləmə çəkisi: 10–14 t",
-            "Mühərrik gücü: 85 kW",
-            "Barabın eni: 2.0 m",
-            "Maksimum sıxlaşdırma qüvvəsi: 110 kN",
-          ],
-        },
-        {
-          name: "Dynapac Sıxlaşdırıcı",
-          manufacturer: "Dynapac",
-          year: "2013",
-          specs: [
-            "İşləmə çəkisi: 14 t",
-            "Mühərrik gücü: 95 kW",
-            "Barabın eni: 2.2 m",
-            "Maksimum sıxlaşdırma qüvvəsi: 130 kN",
-          ],
-        },
+      value: "sdlg-956",
+      title: "SDLG 956 Frontal Yükləyici",
+      headline: "İş çəkisi: 5.6 t",
+      specs: [
+        "Mühərrik gücü: 85 kVt",
+        "Kova tutumu: 2.0–2.3 m³",
+        "Maksimal qaldırma hündürlüyü: 3.2 m",
+        "İstehsalçı: SDLG",
+        "İstehsal ili: 2022",
       ],
     },
     {
-      category: "Greyderlər",
-      items: [
-        {
-          name: "Liugong 418",
-          manufacturer: "Liugong",
-          year: "2024",
-          specs: [
-            "İşləmə çəkisi: 16 t",
-            "Mühərrik gücü: 125 kW",
-            "Bıçaq eni: 4.2 m",
-            "Maksimum qaldırma hündürlüyü: 0.4 m",
-          ],
-        },
+      value: "doosan-dx300",
+      title: "Doosan DX300 Ekskavator",
+      headline: "İş çəkisi: 30 t",
+      specs: [
+        "Mühərrik gücü: 165 kVt",
+        "Əsas qazma radiusu: 10 m",
+        "Kova tutumu: 1.5 m³",
+        "İstehsalçı: Doosan",
+        "İstehsal ili: 2016",
+      ],
+    },
+    {
+      value: "doosan-dx340",
+      title: "Doosan DX340 Tırtıllı Ekskavator",
+      headline: "İş çəkisi: 34 t",
+      specs: [
+        "Mühərrik gücü: 200 kVt",
+        "Əsas qazma radiusu: 10.5 m",
+        "Kova tutumu: 1.6 m³",
+        "İstehsalçı: Doosan",
+        "İstehsal ili: 2012",
+      ],
+    },
+    {
+      value: "komatsu-d155",
+      title: "Komatsu D155 Buldozer",
+      headline: "İş çəkisi: 36 t",
+      specs: [
+        "Mühərrik gücü: 235 kVt",
+        "Lame eni: 4.2 m",
+        "Maksimal torpaq itələmə: 420 m³/saat",
+        "İstehsalçı: Komatsu",
+      ],
+    },
+    {
+      value: "komatsu-d355",
+      title: "Komatsu D355 Buldozer",
+      headline: "İş çəkisi: 53 t",
+      specs: [
+        "Mühərrik gücü: 320 kVt",
+        "Lame eni: 4.8 m",
+        "Maksimal torpaq itələmə: 600 m³/saat",
+        "İstehsalçı: Komatsu",
+        "İstehsal ili: 2012",
+      ],
+    },
+    {
+      value: "xcmg-roller",
+      title: "XCMG Katok",
+      headline: "İş çəkisi: 12–15 t",
+      specs: [
+        "Mühərrik gücü: 92 kVt",
+        "Rulon eni: 2.1 m",
+        "Maksimal sıxılma gücü: 120 kN",
+        "İstehsalçı: XCMG",
+        "İstehsal ili: 2018",
+      ],
+    },
+    {
+      value: "liugong-roller",
+      title: "Liugong Katok",
+      headline: "İş çəkisi: 10–14 t",
+      specs: [
+        "Mühərrik gücü: 85 kVt",
+        "Rulon eni: 2.0 m",
+        "Maksimal sıxılma gücü: 110 kN",
+        "İstehsalçı: Liugong",
+        "İstehsal ili: 2023",
+      ],
+    },
+    {
+      value: "dynapac-roller",
+      title: "Dynapac Katok",
+      headline: "İş çəkisi: 14 t",
+      specs: [
+        "Mühərrik gücü: 95 kVt",
+        "Rulon eni: 2.2 m",
+        "Maksimal sıxılma gücü: 130 kN",
+        "İstehsalçı: Dynapac",
+        "İstehsal ili: 2013",
+      ],
+    },
+    {
+      value: "newholland-305",
+      title: "New Holland 305 Ekskavator",
+      headline: "İş çəkisi: 30 t",
+      specs: [
+        "Mühərrik gücü: 110 kVt",
+        "Əsas qazma radiusu: 9.8 m",
+        "Kova tutumu: 1.0–1.2 m³",
+        "İstehsalçı: New Holland",
+        "İstehsal ili: 2022",
+      ],
+    },
+    {
+      value: "newholland-925",
+      title: "New Holland 925 Ekskavator-Rokson",
+      headline: "İş çəkisi: 24 t",
+      specs: [
+        "Mühərrik gücü: 90 kVt",
+        "Əsas qazma radiusu: 8.5 m",
+        "Kova tutumu: 0.9–1.1 m³",
+        "İstehsalçı: New Holland",
+        "İstehsal ili: 2019",
+      ],
+    },
+    {
+      value: "liugong-418",
+      title: "Liugong 418 Qreyder",
+      headline: "İş çəkisi: 16 t",
+      specs: [
+        "Mühərrik gücü: 125 kVt",
+        "Lame eni: 4.2 m",
+        "Maksimal qaldırma hündürlüyü: 0.4 m",
+        "İstehsalçı: Liugong",
+        "İstehsal ili: 2024",
       ],
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground">
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] py-16 text-primary-foreground">
-        <div className="container mx-auto px-4">
+      <section className="relative flex min-h-[55vh] items-center justify-center overflow-hidden text-white">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1531835551804-77e90951d106?auto=format&fit=crop&w=1600&q=80"
+            alt="Tikinti sahəsində çalışan ağır texnika"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+        <div className="relative z-10 container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Texnika Parkımız</h1>
-            <p className="text-xl text-primary-foreground/90">
-              Müasir avadanlıq. Təcrübəli operatorlar. Etibarlı performans.
+            <p className="mb-4 text-sm uppercase tracking-[0.35em] text-white/70">
+              Etibarlı texnika, peşəkar xidmət
             </p>
+            <h1 className="text-4xl font-bold md:text-5xl">Texnika Parkımız</h1>
           </div>
         </div>
       </section>
@@ -238,52 +227,53 @@ const Fleet = () => {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-lg text-muted-foreground">
-              Texnika parkımız aparıcı qlobal brendlərin müasir ağır avadanlıqlarından ibarətdir. Bütün maşınlar mütəmadi olaraq yoxlanılır və ixtisaslı mütəxəssislər tərəfindən idarə olunur.
+              Texnika parkımız aparıcı qlobal brendlərin ağır texnikasından ibarətdir. Hər bir
+              avadanlığımız müntəzəm texniki baxışdan keçir və ixtisaslı operatorların nəzarəti ilə
+              işləyir. Layihələriniz üçün etibarlı, çevik və məhsuldar həllər təqdim edirik.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Equipment Grid */}
+      {/* Equipment Tabs */}
       <section className="pb-16">
         <div className="container mx-auto px-4">
-          {equipment.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-12">
-              <div className="mb-6 flex items-center gap-3">
-                <Wrench className="h-8 w-8 text-secondary" />
-                <h2 className="text-3xl font-bold text-foreground">{category.category}</h2>
-              </div>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {category.items.map((item, itemIndex) => (
-                  <Card key={itemIndex} className="overflow-hidden transition-shadow hover:shadow-lg">
-                    {/* Image Placeholder */}
-                    <div className="aspect-video w-full bg-muted flex items-center justify-center">
-                      <Wrench className="h-16 w-16 text-muted-foreground/40" />
-                    </div>
-                    <CardContent className="p-6">
-                      <h3 className="mb-2 text-xl font-bold text-foreground">{item.name}</h3>
-                      <div className="mb-3 flex items-center gap-2 text-sm text-muted-foreground">
-                        <span className="font-medium">{item.manufacturer}</span>
-                        {item.year && (
-                          <>
-                            <span>•</span>
-                            <span>{item.year}</span>
-                          </>
-                        )}
-                      </div>
-                      <div className="space-y-1">
-                        {item.specs.map((spec, specIndex) => (
-                          <p key={specIndex} className="text-sm text-muted-foreground">
-                            • {spec}
-                          </p>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
+          <Tabs defaultValue={machines[0]?.value ?? "genie-4017"} className="w-full">
+            <div className="mb-8 overflow-x-auto">
+              <TabsList className="flex w-full gap-2 bg-transparent p-0">
+                {machines.map((machine) => (
+                  <TabsTrigger
+                    key={machine.value}
+                    value={machine.value}
+                    className="whitespace-nowrap rounded-full border border-border px-4 py-2 text-sm font-medium transition data-[state=active]:border-primary data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                  >
+                    {machine.title}
+                  </TabsTrigger>
                 ))}
-              </div>
+              </TabsList>
             </div>
-          ))}
+            {machines.map((machine) => (
+              <TabsContent key={machine.value} value={machine.value}>
+                <Card>
+                  <CardContent className="flex flex-col gap-8 p-8 md:flex-row md:items-start">
+                    <div className="md:w-1/3">
+                      <p className="text-lg font-semibold text-primary">{machine.headline}</p>
+                    </div>
+                    <div className="flex-1">
+                      <ul className="space-y-3 text-muted-foreground">
+                        {machine.specs.map((spec) => (
+                          <li key={spec} className="flex items-start gap-2 text-sm md:text-base">
+                            <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-primary" />
+                            <span>{spec}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            ))}
+          </Tabs>
         </div>
       </section>
 
