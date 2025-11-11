@@ -11,6 +11,13 @@ import {
   Truck,
   Users,
 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -88,6 +95,17 @@ const Index = () => {
     { name: "“ENERGY SERVICE GROUP” MMC", detail: "Ələt Azad İqtisadi Zonası torpaq işləri" },
   ];
 
+  const aboutImages = [
+    {
+      src: "https://images.unsplash.com/photo-1503377989770-621376ff2e68?auto=format&fit=crop&w=1600&q=80",
+      alt: "Dağlıq ərazidə çalışan ekskavator",
+    },
+    {
+      src: "https://iytgdt68iww627sj.public.blob.vercel-storage.com/kran/brady-rogers-V9XSu8fTa-I-unsplash.jpg",
+      alt: "Tikinti sahəsində kran avadanlığı",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -138,13 +156,21 @@ const Index = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="relative overflow-hidden rounded-3xl shadow-xl">
-              <img
-                src="https://images.unsplash.com/photo-1503377989770-621376ff2e68?auto=format&fit=crop&w=1600&q=80"
-                alt="Azel Texnika-nın torpaq işlərində istifadə etdiyi ekskavator"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent" />
+            <div className="relative">
+              <Carousel className="w-full" opts={{ loop: true }}>
+                <CarouselContent>
+                  {aboutImages.map((image, index) => (
+                    <CarouselItem key={image.src + index}>
+                      <div className="relative overflow-hidden rounded-3xl shadow-xl">
+                        <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent" />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="-left-6 top-1/2 -translate-y-1/2 border-none bg-black/60 text-white hover:bg-black/80" />
+                <CarouselNext className="-right-6 top-1/2 -translate-y-1/2 border-none bg-black/60 text-white hover:bg-black/80" />
+              </Carousel>
             </div>
             <div className="space-y-6">
               <div>
