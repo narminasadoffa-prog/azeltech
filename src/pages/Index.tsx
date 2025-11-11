@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Input } from "@/components/ui/input";
 
 const Index = () => {
   const services = [
@@ -96,9 +97,9 @@ const Index = () => {
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1503377989770-621376ff2e68?auto=format&fit=crop&w=2200&q=80"
-            alt="Dağlıq ərazidə çalışan ekskavator"
-            className="h-full w-full object-cover object-center"
+            src="https://images.unsplash.com/photo-1641828143295-a42e0a39a08d?auto=format&fit=crop&w=1800&q=80"
+            alt="Ağır texnika ilə torpaq işləri"
+            className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
@@ -135,6 +136,31 @@ const Index = () => {
                   <NavLink to="/contact">Bizimlə Əlaqə</NavLink>
                 </Button>
               </div>
+            </div>
+
+            <div className="w-full max-w-4xl">
+              <div className="grid gap-4 rounded-2xl bg-white/95 p-6 shadow-2xl backdrop-blur-sm md:grid-cols-[2fr,2fr,1fr]">
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground/80">
+                    Texnika Axtarışı
+                  </label>
+                  <Input placeholder="HansI texnika lazımdır?" className="h-12 text-base" />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground/80">
+                    Layihə Məkanı
+                  </label>
+                  <Input placeholder="Şəhər, rayon və ya layihə adı" className="h-12 text-base" />
+                </div>
+                <div className="flex items-end">
+                  <Button size="lg" className="h-12 w-full text-base font-semibold">
+                    Axtar
+                  </Button>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-white/80">
+                Texnika icarəsi sorğuları üçün formu doldurun və ya birbaşa bizimlə əlaqə saxlayın.
+              </p>
             </div>
           </div>
         </div>
