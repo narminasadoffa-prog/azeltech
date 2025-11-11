@@ -137,43 +137,68 @@ const Index = () => {
       {/* Who We Are */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mb-8 text-center text-3xl font-bold text-foreground md:text-4xl">
-              Biz Kimik
-            </h2>
-            <div className="mb-8 text-center text-lg text-muted-foreground">
-              <p className="mb-4">
-                "Azel Texnika" MMC 2021-ci ildən etibarən Azərbaycanda fəaliyyət göstərən sürətlə inkişaf edən ağır texnika xidməti şirkətidir.
-              </p>
-              <p>
-                Biz istənilən miqyaslı layihələr üçün texnika icarəsi, torpaq işləri, yol tikintisi, infrastruktur dəstəyi və subpodratçı xidmətləri təqdim edirik.
-              </p>
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="relative overflow-hidden rounded-3xl shadow-xl">
+              <img
+                src="https://images.unsplash.com/photo-1503377989770-621376ff2e68?auto=format&fit=crop&w=1600&q=80"
+                alt="Azel Texnika-nın torpaq işlərində istifadə etdiyi ekskavator"
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent" />
             </div>
-            <div className="grid gap-4 md:grid-cols-3">
-              <Card>
-                <CardContent className="flex items-start gap-3 p-6">
-                  <Check className="mt-1 h-5 w-5 flex-shrink-0 text-success" />
-                  <div>
-                    <h3 className="font-semibold text-card-foreground">Peşəkar operatorlar və mühəndislər</h3>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="flex items-start gap-3 p-6">
-                  <Check className="mt-1 h-5 w-5 flex-shrink-0 text-success" />
-                  <div>
-                    <h3 className="font-semibold text-card-foreground">Müasir texnika parkı</h3>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="flex items-start gap-3 p-6">
-                  <Check className="mt-1 h-5 w-5 flex-shrink-0 text-success" />
-                  <div>
-                    <h3 className="font-semibold text-card-foreground">Vaxtında və təhlükəsiz layihə icrası</h3>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-3xl font-bold text-foreground md:text-4xl">Biz Kimik</h2>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  “Azel Texnika” MMC 2021-ci ildən Azərbaycanda ağır texnika icarəsi, torpaq işləri,
+                  yol tikintisi və infrastruktur dəstəyi üzrə təhlükəsiz və peşəkar xidmət göstərir.
+                </p>
+                <p className="text-lg text-muted-foreground">
+                  Müasir texnika parkımız və yüksək ixtisaslı operator heyətimiz istənilən miqyaslı
+                  layihələrdə etibarlı tərəfdaş kimi çıxış etməyimizə şərait yaradır.
+                </p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Card className="border-border/70 shadow-sm">
+                  <CardContent className="flex items-start gap-3 p-5">
+                    <Check className="mt-1 h-5 w-5 flex-shrink-0 text-success" />
+                    <div>
+                      <h3 className="text-base font-semibold text-card-foreground">
+                        Peşəkar operatorlar
+                      </h3>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        Təhlükəsizlik standartlarına uyğunlaşdırılmış komanda.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card className="border-border/70 shadow-sm">
+                  <CardContent className="flex items-start gap-3 p-5">
+                    <Check className="mt-1 h-5 w-5 flex-shrink-0 text-success" />
+                    <div>
+                      <h3 className="text-base font-semibold text-card-foreground">
+                        Müasir texnika parkı
+                      </h3>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        Geniş seçim və yüksək məhsuldarlıq təminatı.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card className="border-border/70 shadow-sm sm:col-span-2">
+                  <CardContent className="flex items-start gap-3 p-5">
+                    <Check className="mt-1 h-5 w-5 flex-shrink-0 text-success" />
+                    <div>
+                      <h3 className="text-base font-semibold text-card-foreground">
+                        Vaxtında və təhlükəsiz icra
+                      </h3>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        Layihələrdə operativ planlama və sistemli nəzarət.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>

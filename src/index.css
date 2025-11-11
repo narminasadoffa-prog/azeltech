@@ -17,9 +17,9 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 20%;
 
-    /* Industrial blue - professional and trustworthy */
-    --primary: 221 83% 25%;
-    --primary-foreground: 0 0% 100%;
+    /* Signature equipment yellow */
+    --primary: 45 96% 53%;
+    --primary-foreground: 0 0% 10%;
 
     /* Energetic orange - machinery and action */
     --secondary: 25 95% 53%;
@@ -36,7 +36,7 @@ All colors MUST be HSL.
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 221 83% 25%;
+    --ring: 45 96% 53%;
 
     --radius: 0.5rem;
 
@@ -45,8 +45,8 @@ All colors MUST be HSL.
     --success-foreground: 0 0% 100%;
 
     /* Hero gradient */
-    --hero-gradient-start: 221 83% 25%;
-    --hero-gradient-end: 221 83% 15%;
+    --hero-gradient-start: 45 96% 53%;
+    --hero-gradient-end: 45 96% 43%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -68,8 +68,8 @@ All colors MUST be HSL.
     --popover: 220 15% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 221 83% 53%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 45 96% 60%;
+    --primary-foreground: 0 0% 10%;
 
     --secondary: 25 95% 53%;
     --secondary-foreground: 0 0% 100%;
@@ -85,13 +85,13 @@ All colors MUST be HSL.
 
     --border: 220 15% 18%;
     --input: 220 15% 18%;
-    --ring: 221 83% 53%;
+    --ring: 45 96% 60%;
 
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
 
-    --hero-gradient-start: 221 83% 15%;
-    --hero-gradient-end: 221 83% 8%;
+    --hero-gradient-start: 45 96% 55%;
+    --hero-gradient-end: 45 96% 40%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
