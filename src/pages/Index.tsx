@@ -93,22 +93,42 @@ const Index = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] py-20 text-primary-foreground">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-              Etibarlı texnika – Peşəkar xidmət – Davamlı nəticələr
-            </h1>
-            <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl">
-              Azərbaycanda ağır texnika icarəsi, torpaq işləri və tikinti xidmətləri üzrə etibarlı tərəfdaşınız.
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button asChild size="lg" variant="secondary">
-                <NavLink to="/fleet">Texnika Parkımız</NavLink>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                <NavLink to="/contact">Bizimlə Əlaqə</NavLink>
-              </Button>
+      <section className="relative flex min-h-[70vh] items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1523419409543-0c1df022bdd1?auto=format&fit=crop&w=2200&q=80"
+            alt="Ağır texnika iş başında"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-x-0 top-0 h-1 bg-primary" />
+        </div>
+        <div className="relative z-10 w-full">
+          <div className="container mx-auto px-4 py-20">
+            <div className="max-w-2xl text-left text-white">
+              <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+                Etibarlı texnika – Peşəkar xidmət – Davamlı nəticələr
+              </h1>
+              <p className="mb-8 text-lg text-white/85 md:text-xl">
+                Azərbaycanda ağır texnika icarəsi, torpaq işləri və tikinti xidmətləri üzrə etibarlı tərəfdaşınız.
+              </p>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  <NavLink to="/fleet">Texnika Parkımız</NavLink>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-foreground"
+                >
+                  <NavLink to="/contact">Bizimlə Əlaqə</NavLink>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
