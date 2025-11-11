@@ -1,7 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { NavLink } from "@/components/NavLink";
-import { Check, Truck, Building2, Hammer, Users } from "lucide-react";
+import {
+  Award,
+  BriefcaseBusiness,
+  Building2,
+  Check,
+  Hammer,
+  Newspaper,
+  Truck,
+  Users,
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -34,6 +43,49 @@ const Index = () => {
     { title: "Keyfiyyət", description: "Yüksək standartlı performans və texniki dəqiqlik" },
     { title: "Peşəkar Komanda", description: "Bacarıqlı mühəndislər, sertifikatlı operatorlar" },
     { title: "Şəffaflıq", description: "Aydın şərtlər, ədalətli qiymətlər, qarşılıqlı etibar" },
+  ];
+
+  const news = [
+    {
+      title: "Yeni Shantui SD22 buldozerləri parkımıza qatıldı",
+      date: "Mart 2025",
+      description:
+        "Torpaq işləri üzrə yeni nəsil buldozerlərimiz daha yüksək məhsuldarlıq və dəqiqlik təmin edir.",
+    },
+    {
+      title: "Ələt Azad İqtisadi Zonası layihəsində mühüm mərhələ",
+      date: "Fevral 2025",
+      description:
+        "Ərazinin düzləndirilməsi və torpaq işləri üzrə icra etdiyimiz xidmətlər uğurla davam edir.",
+    },
+  ];
+
+  const careers = [
+    {
+      position: "Buldozer operatoru",
+      type: "Tam ştat",
+      location: "Bakı və bölgələr",
+      requirements: "Minimum 3 il təcrübə, təhlükəsizlik qaydalarına ciddi riayət",
+    },
+    {
+      position: "Ekskavator operatoru",
+      type: "Tam ştat",
+      location: "Bakı və Qarabağ layihələri",
+      requirements: "Texniki sertifikat, müasir ekskavatorlarla işləmə bacarığı",
+    },
+    {
+      position: "Layihə mühəndisi",
+      type: "Tam ştat",
+      location: "Bakı",
+      requirements: "İnşaat mühəndisliyi ixtisası, layihə idarəetmə təcrübəsi",
+    },
+  ];
+
+  const partners = [
+    { name: "“CONCO” QSC", detail: "Şuşa yaşayış massivi layihəsi üzrə tərəfdaş" },
+    { name: "“MAQRO CONSTRUCTION” MMC", detail: "Daşkəsən qızıl mədəni layihəsi" },
+    { name: "“AZ.YOL-TİKİNTİ” MMC", detail: "Yol inşaatı və günəş paneli infrastrukturu" },
+    { name: "“ENERGY SERVICE GROUP” MMC", detail: "Ələt Azad İqtisadi Zonası torpaq işləri" },
   ];
 
   return (
@@ -142,6 +194,112 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News Section */}
+      <section className="bg-muted/40 py-16">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-4 flex items-center justify-center gap-3 text-primary">
+              <Newspaper className="h-7 w-7" />
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/80">
+                Xəbərlər / Yeniliklər
+              </p>
+            </div>
+            <h2 className="mb-8 text-3xl font-bold text-foreground md:text-4xl">
+              Son Yeniliklərimiz
+            </h2>
+          </div>
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+            {news.map((item) => (
+              <Card key={item.title} className="h-full border border-border/60">
+                <CardContent className="flex h-full flex-col gap-4 p-6">
+                  <div className="text-sm font-semibold uppercase tracking-wide text-primary/80">
+                    {item.date}
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Career Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-4 flex items-center justify-center gap-3 text-primary">
+              <BriefcaseBusiness className="h-7 w-7" />
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/80">
+                Karyera
+              </p>
+            </div>
+            <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
+              Peşəkar komandamıza qoşulun
+            </h2>
+            <p className="mb-12 text-lg text-muted-foreground">
+              İxtisaslı texnika operatorları və mühəndislər üçün davamlı inkişaf, təhlükəsiz iş
+              mühiti və sabit əməkhaqqı təklif edirik.
+            </p>
+          </div>
+          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {careers.map((career) => (
+              <Card key={career.position} className="h-full border border-border/60">
+                <CardContent className="flex h-full flex-col gap-4 p-6">
+                  <div className="text-xs font-semibold uppercase tracking-[0.3em] text-primary/70">
+                    {career.type}
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground">{career.position}</h3>
+                  <p className="text-sm font-medium text-muted-foreground/80">{career.location}</p>
+                  <p className="text-sm text-muted-foreground">{career.requirements}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Button asChild size="lg">
+              <NavLink to="/contact">CV göndər</NavLink>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Certificates & Partners */}
+      <section className="bg-muted py-16">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-4 flex items-center justify-center gap-3 text-primary">
+              <Award className="h-7 w-7" />
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary/80">
+                Sertifikatlar və tərəfdaşlar
+              </p>
+            </div>
+            <h2 className="mb-6 text-3xl font-bold text-foreground md:text-4xl">
+              Sənədlərlə təsdiqlənmiş etibarlılıq
+            </h2>
+            <p className="mb-12 text-lg text-muted-foreground">
+              Bizimlə əməkdaşlıq edən yerli və beynəlxalq tərəfdaşlar, eləcə də texnika parkımızın
+              uyğunluğunu təsdiq edən sertifikatlar güvənli tərəfdaş imicimizi möhkəmləndirir.
+            </p>
+          </div>
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+            {partners.map((partner) => (
+              <Card key={partner.name} className="border border-border/60">
+                <CardContent className="space-y-3 p-6">
+                  <h3 className="text-lg font-semibold text-foreground">{partner.name}</h3>
+                  <p className="text-sm text-muted-foreground">{partner.detail}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-10 text-center text-sm text-muted-foreground">
+            <p>
+              * Sertifikatlaşdırma sənədləri və tərəfdaş siyahısı tələb əsasında təqdim olunur.
+            </p>
           </div>
         </div>
       </section>
