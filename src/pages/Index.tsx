@@ -104,6 +104,10 @@ const Index = () => {
       src: "https://iytgdt68iww627sj.public.blob.vercel-storage.com/kran/brady-rogers-V9XSu8fTa-I-unsplash.jpg",
       alt: "Tikinti sahəsində kran avadanlığı",
     },
+    {
+      src: "https://iytgdt68iww627sj.public.blob.vercel-storage.com/kran/jason-jarrach-_CVuT8IBtjY-unsplash.jpg",
+      alt: "Şəhər skyline fonunda qüllə kranı",
+    },
   ];
 
   return (
