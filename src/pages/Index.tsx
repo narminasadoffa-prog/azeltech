@@ -97,10 +97,6 @@ const Index = () => {
 
   const aboutImages = [
     {
-      src: "https://images.unsplash.com/photo-1503377989770-621376ff2e68?auto=format&fit=crop&w=1600&q=80",
-      alt: "Dağlıq ərazidə çalışan ekskavator",
-    },
-    {
       src: "https://iytgdt68iww627sj.public.blob.vercel-storage.com/kran/brady-rogers-V9XSu8fTa-I-unsplash.jpg",
       alt: "Tikinti sahəsində kran avadanlığı",
     },
@@ -165,8 +161,12 @@ const Index = () => {
                 <CarouselContent>
                   {aboutImages.map((image, index) => (
                     <CarouselItem key={image.src + index}>
-                      <div className="relative overflow-hidden rounded-3xl shadow-xl">
-                        <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-xl">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="h-full w-full object-cover object-center"
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent" />
                       </div>
                     </CarouselItem>
