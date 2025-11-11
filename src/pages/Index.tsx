@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Input } from "@/components/ui/input";
 
 const Index = () => {
   const services = [
@@ -94,73 +93,22 @@ const Index = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1641828143295-a42e0a39a08d?auto=format&fit=crop&w=1800&q=80"
-            alt="Ağır texnika ilə torpaq işləri"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
-        <div className="relative z-10 w-full">
-          <div className="container mx-auto flex flex-col gap-10 px-4 py-24">
-            <div className="max-w-2xl text-left text-white">
-              <div className="mb-6 flex items-center gap-3">
-                <span className="h-1 w-12 rounded-full bg-primary" />
-                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/80">
-                  Ağır Texnika İcarəsi
-                </p>
-              </div>
-              <h1 className="mb-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-                Hər layihə üçün etibarlı texnika və peşəkar xidmət
-              </h1>
-              <p className="mb-8 text-lg text-white/85 md:text-xl">
-                “Azel Texnika” MMC geniş texnika parkı, ixtisaslı operatorlar və sürətli logistika ilə
-                torpaq işləri, yol tikintisi və infrastruktur layihələri üçün icarə həlləri təqdim edir.
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90"
-                >
-                  <NavLink to="/fleet">Texnika Parkına Bax</NavLink>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-foreground"
-                >
-                  <NavLink to="/contact">Bizimlə Əlaqə</NavLink>
-                </Button>
-              </div>
-            </div>
-
-            <div className="w-full max-w-4xl">
-              <div className="grid gap-4 rounded-2xl bg-white/95 p-6 shadow-2xl backdrop-blur-sm md:grid-cols-[2fr,2fr,1fr]">
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground/80">
-                    Texnika Axtarışı
-                  </label>
-                  <Input placeholder="HansI texnika lazımdır?" className="h-12 text-base" />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground/80">
-                    Layihə Məkanı
-                  </label>
-                  <Input placeholder="Şəhər, rayon və ya layihə adı" className="h-12 text-base" />
-                </div>
-                <div className="flex items-end">
-                  <Button size="lg" className="h-12 w-full text-base font-semibold">
-                    Axtar
-                  </Button>
-                </div>
-              </div>
-              <p className="mt-4 text-sm text-white/80">
-                Texnika icarəsi sorğuları üçün formu doldurun və ya birbaşa bizimlə əlaqə saxlayın.
-              </p>
+      <section className="relative bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] py-20 text-primary-foreground">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+              Etibarlı texnika – Peşəkar xidmət – Davamlı nəticələr
+            </h1>
+            <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl">
+              Azərbaycanda ağır texnika icarəsi, torpaq işləri və tikinti xidmətləri üzrə etibarlı tərəfdaşınız.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <Button asChild size="lg" variant="secondary">
+                <NavLink to="/fleet">Texnika Parkımız</NavLink>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                <NavLink to="/contact">Bizimlə Əlaqə</NavLink>
+              </Button>
             </div>
           </div>
         </div>
