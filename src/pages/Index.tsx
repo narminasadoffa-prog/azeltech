@@ -96,7 +96,7 @@ const Index = () => {
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://iytgdt68iww627sj.public.blob.vercel-storage.com/slider/gerold-hinzen-WoZs8gGyQBY-unsplash%20%281%29-GRyZ09K7DovZ0FSjzURe3UWP4q6kxU.jpg"
+            src="https://images.unsplash.com/photo-1503377989770-621376ff2e68?auto=format&fit=crop&w=2200&q=80"
             alt="Dağlıq ərazidə çalışan ekskavator"
             className="h-full w-full object-cover object-center"
           />
