@@ -21,7 +21,9 @@
     "prisma:update-bulldozers": "node prisma/update-bulldozers.js",
     "prisma:cleanup-blog": "node prisma/cleanup-blog-posts.js",
     "deploy:prepare": "npm run build && npm run prisma:generate",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "docker:build": "docker build -t azeltech-app .",
+    "docker:run": "docker run -p 3001:3001 --env-file .env.production azeltech-app"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

@@ -88,6 +88,11 @@ if (process.env.NODE_ENV === 'production') {
   }));
 }
 
+// Health check endpoint (for Coolify/Docker)
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 // Middleware for authentication
 const authenticateToken = async (req, res, next) => {
   const authHeader = req.headers['authorization'];
