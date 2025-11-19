@@ -20,6 +20,7 @@
     "prisma:seed": "node prisma/seed.js",
     "prisma:update-bulldozers": "node prisma/update-bulldozers.js",
     "prisma:cleanup-blog": "node prisma/cleanup-blog-posts.js",
+    "prisma:migrate-to-postgres": "node prisma/migrate-to-postgresql.js",
     "deploy:prepare": "npm run build && npm run prisma:generate",
     "postinstall": "prisma generate",
     "docker:build": "docker build -t azeltech-app .",
