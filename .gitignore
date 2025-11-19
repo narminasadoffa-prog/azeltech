@@ -22,3 +22,25 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Database
+prisma/dev.db
+prisma/dev.db-journal
+*.db
+*.db-journal
+
+# Prisma
+node_modules/.prisma
+node_modules/@prisma/client
+
+# Uploads (production uploads should be on server)
+public/uploads/*
+!public/uploads/.gitkeep
+public/cvs/*
+!public/cvs/.gitkeep

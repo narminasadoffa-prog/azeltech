@@ -1,187 +1,129 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useEffect, useState } from "react";
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
+interface Project {
+  id: string;
+  no: string;
+  name: string;
+  contractor: string;
+  period: string;
+  image: string | null;
+  published: boolean;
+}
 
 const Projects = () => {
-  const services = [
-    "Qazma işləri",
-    "Torpaq düzləşdirmə",
-    "Yol yatağı tikintisi",
-    "Texniki dəstək və nəzarət",
-  ];
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const projects = [
-    {
-      no: "1",
-      name: "Daşkəsən qızıl mədəni layihəsi",
-      contractor: "“MAQRO CONSTRUCTION” MMC",
-      period: "2022–2023",
-    },
-    {
-      no: "2",
-      name: "Şuşa şəhərində yeni yaşayış massivinin tikintisi",
-      contractor: "“CONCO” QSC",
-      period: "2023–2024",
-    },
-    {
-      no: "3",
-      name: "Daşkəsən–Kəlbəcər hərbi yolunun tikintisi",
-      contractor: "“NORT VEST KONSTRAKŞN” MMC",
-      period: "2023",
-    },
-    {
-      no: "4",
-      name: "Böyükşor–Pirşağı avtomobil yolunun tikintisi",
-      contractor: "“AZ.YOL-TİKİNTİ” MMC",
-      period: "2024",
-    },
-    {
-      no: "5",
-      name: "Masazır duz gölünün ətrafının təmizlənməsi",
-      contractor: "“AZƏRBAYCAN DUZ İSTEHSALAT BİRLİYİ” QSC",
-      period: "2024",
-    },
-    {
-      no: "6",
-      name: "Ələt Azad İqtisadi Zonasında ərazinin düzləşdirilməsi",
-      contractor: "“Özgün Yapı Sanayi ve Ticaret A.Ş.” (Azərbaycan filialı)",
-      period: "2024",
-    },
-    {
-      no: "7",
-      name: "Ələt Azad İqtisadi Zonasında ərazinin düzləşdirilməsi",
-      contractor: "“AZ-MAŞ” QSC",
-      period: "2024",
-    },
-    {
-      no: "8",
-      name: "Ağdam 3-cü yaşayış massivinin inşası",
-      contractor: "“AZƏRAQRARTİKİNTİ” ASC",
-      period: "2025",
-    },
-    {
-      no: "9",
-      name: "Biləsuvar rayonunda günəş panellərinin quraşdırılması sahəsində ərazinin hazırlanması",
-      contractor: "“AZ.YOL-TİKİNTİ” MMC",
-      period: "2025 – davam edir",
-    },
-    {
-      no: "10",
-      name: "Neftçala rayonunda günəş panellərinin quraşdırılması sahəsində ərazinin hazırlanması",
-      contractor: "“AZ.YOL-TİKİNTİ” MMC",
-      period: "2025 – davam edir",
-    },
-    {
-      no: "11",
-      name: "Ələt Azad İqtisadi Zonasında ərazinin düzləşdirilməsi",
-      contractor: "“ENERGY SERVICE GROUP” MMC",
-      period: "2025 – davam edir",
-    },
-    {
-      no: "12",
-      name: "Seebreeze ərazisində torpaq işləri",
-      contractor: "“PARLAQ İNŞAAT” MMC",
-      period: "2025 – davam edir",
-    },
-  ];
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  const fetchProjects = async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/projects`);
+      const data = await response.json();
+      setProjects(data.filter((project: Project) => project.published));
+    } catch (error) {
+      console.error('Error fetching projects:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[hsl(var(--hero-gradient-start))] to-[hsl(var(--hero-gradient-end))] py-16 text-primary-foreground">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Layihələrimiz</h1>
-            <p className="text-xl text-primary-foreground/90">
-              Uğurlu infrastruktur və tikinti layihələrində sübut olunmuş iş təcrübəsi
-            </p>
+      <section className="relative flex min-h-[55vh] items-center overflow-hidden text-white">
+        <div className="absolute inset-0">
+          <img
+            src="https://iytgdt68iww627sj.public.blob.vercel-storage.com/layih%C9%99l%C9%99rimiz%20AZEL%20/acton-crawford-A4xwAcZOAyo-unsplash.jpg"
+            alt="Layihələrimiz üçün ağır texnika"
+            className="h-full w-full scale-110 object-cover object-center"
+            style={{ objectPosition: 'center center' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/55 to-black/75" />
+        </div>
+        <div className="relative z-10 w-full">
+          <div className="container mx-auto px-4 py-16" style={{ maxWidth: '1200px' }}>
+            <div className="mx-auto max-w-3xl rounded-3xl p-10 text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/70">
+                Layihələr portfeli
+              </p>
+              <h1 className="mt-4 text-4xl font-bold md:text-5xl">Layihələrimiz</h1>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl">
-            <Card className="mb-12">
+      <section className="py-16" style={{
+        background: `linear-gradient(135deg, aliceblue 0%, rgba(240, 248, 255, 0.8) 50%, aliceblue 100%),
+                      linear-gradient(to right, rgba(0, 0, 0, 0.3) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 1px, transparent 1px)`,
+        backgroundSize: '100% 100%, 40px 40px, 40px 40px',
+        backgroundPosition: '0 0, 0 0, 0 0',
+      }}>
+        <div className="container mx-auto px-4" style={{ maxWidth: '1200px' }}>
+          <div className="mx-auto max-w-5xl space-y-12">
+            <Card className="border-none bg-white shadow-lg">
               <CardContent className="p-8">
-                <p className="mb-6 text-lg text-muted-foreground">
-                  2021-ci ildən etibarən ümummilli tikinti, infrastruktur və torpaq inkişafı layihələrində subpodratçı kimi uğurla fəaliyyət göstəririk.
-                </p>
-                <h2 className="mb-6 text-2xl font-bold text-foreground">Görülən işlərimiz:</h2>
-                <div className="grid gap-4 md:grid-cols-2">
-                  {services.map((service, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-success" />
-                      <span className="text-card-foreground">{service}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="mb-12">
-              <CardContent className="p-8">
-                <h2 className="mb-4 text-3xl font-bold text-foreground">Layihələr</h2>
-                <p className="mb-6 text-lg text-muted-foreground">
-                  “Azel Texnika” MMC 2021-ci ildən etibarən ölkə üzrə müxtəlif miqyaslı tikinti, infrastruktur və ərazi hazırlığı layihələrində subpodratçı kimi uğurla fəaliyyət göstərir. Aşağıda şirkətimizin iştirak etdiyi əsas layihələrin bir hissəsi təqdim olunur:
-                </p>
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse text-left text-sm md:text-base">
-                    <thead>
-                      <tr className="bg-muted">
-                        <th className="border border-border px-4 py-3 font-semibold text-foreground">
-                          №
-                        </th>
-                        <th className="border border-border px-4 py-3 font-semibold text-foreground">
-                          Layihə
-                        </th>
-                        <th className="border border-border px-4 py-3 font-semibold text-foreground">
-                          Podratçı şirkət
-                        </th>
-                        <th className="border border-border px-4 py-3 font-semibold text-foreground">
-                          Dövr
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {projects.map((project) => (
-                        <tr key={project.no} className="odd:bg-background even:bg-muted/40">
-                          <td className="border border-border px-4 py-3 text-foreground">
-                            {project.no}
-                          </td>
-                          <td className="border border-border px-4 py-3 text-foreground">
-                            {project.name}
-                          </td>
-                          <td className="border border-border px-4 py-3 text-foreground">
-                            {project.contractor}
-                          </td>
-                          <td className="border border-border px-4 py-3 text-foreground">
-                            {project.period}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                <div className="mt-6 border-t border-border pt-6">
+                <div className="space-y-4">
                   <p className="text-lg text-muted-foreground">
-                    “Azel Texnika” MMC yuxarıda göstərilən layihələrdə torpaq qazma, ərazi düzləndirmə, yol əsasının hazırlanması və digər texniki xidmətlərin icrasını həyata keçirmişdir. Bizim məqsədimiz — hər bir layihədə vaxtında, təhlükəsiz və yüksək keyfiyyətlə icranı təmin etməkdir. Davam edən və tamamlanmış işlərimiz şirkətimizin peşəkarlığını, texniki potensialını və etibarlı tərəfdaş imicini əks etdirir.
+                    "Azel Texnika" MMC 2021-ci ildən etibarən ölkə üzrə müxtəlif miqyaslı tikinti, infrastruktur və ərazi hazırlığı layihələrində subpodratçı kimi uğurla fəaliyyət göstərir.
+                  </p>
+                  <p className="text-lg text-muted-foreground">
+                    Göstərilən layihələrdə torpaq qazma, ərazi düzləndirmə, yol əsasının hazırlanması və digər texniki xidmətlərin icrasını həyata keçirmişdir.
+                  </p>
+                  <p className="text-lg text-muted-foreground">
+                    Bizim məqsədimiz — hər bir layihədə vaxtında, təhlükəsiz və yüksək keyfiyyətlə icranı təmin etməkdir.
+                  </p>
+                  <p className="text-lg text-muted-foreground">
+                    Davam edən və tamamlanmış işlərimiz şirkətimizin peşəkarlığını, texniki potensialını və etibarlı tərəfdaş imicini əks etdirir.
+                  </p>
+                  <p className="text-lg text-muted-foreground">
+                    Aşağıda şirkətimizin iştirak etdiyi əsas layihələrin bir hissəsi təqdim olunur:
                   </p>
                 </div>
               </CardContent>
             </Card>
 
-            <div className="rounded-lg bg-muted p-8 text-center">
-              <h3 className="mb-4 text-2xl font-bold text-foreground">
-                İş Təcrübəmiz
-              </h3>
-              <p className="text-lg text-muted-foreground">
-                Tamamlanmış və davam edən layihələr Azərbaycanın tikinti və infrastruktur sektorlarında etibarlılığımızı, texniki potensialımızı və güclü tərəfdaş reputasiyamızı nümayiş etdirir.
-              </p>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {loading ? (
+                <div className="col-span-2 text-center py-12">Yüklənir...</div>
+              ) : projects.length === 0 ? (
+                <div className="col-span-2 text-center py-12 text-muted-foreground">Hələ layihə yoxdur</div>
+              ) : (
+                projects.map((project) => (
+                <Card
+                  key={project.id}
+                  className="overflow-hidden border border-primary/10 bg-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <CardContent className="space-y-5 p-7">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold uppercase tracking-[0.35em] text-primary">
+                        Layihə #{project.no}
+                      </span>
+                      <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                        {project.period}
+                      </span>
+                    </div>
+                    <div className="space-y-3">
+                      <h3 className="text-xl font-semibold text-foreground">{project.name}</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Podratçı: <span className="font-medium text-foreground">{project.contractor}</span>
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+                ))
+              )}
             </div>
           </div>
         </div>

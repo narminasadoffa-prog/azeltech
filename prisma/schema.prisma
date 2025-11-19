@@ -1,0 +1,121 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("admin") // admin, editor
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  excerpt     String?
+  content     String?
+  image       String?
+  date        String
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("blog_posts")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  no          String
+  name        String
+  contractor  String
+  period      String
+  image       String?
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("projects")
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  image       String?
+  items       String? // JSON string array
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("services")
+}
+
+model Equipment {
+  id          String   @id @default(cuid())
+  category    String
+  name        String
+  description String?
+  image       String?
+  count       String?
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("equipment")
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("contact_messages")
+}
+
+model Vacancy {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  requirements String?
+  location    String?
+  salary      String?
+  type        String?  // full-time, part-time, contract
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("vacancies")
+}
+
+model CV {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  position    String?  // Applied position
+  cvFile      String   // File path
+  message     String?
+  read        Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@map("cvs")
+}
+

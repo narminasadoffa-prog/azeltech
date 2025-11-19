@@ -17,18 +17,18 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 20%;
 
-    /* Signature equipment yellow */
-    --primary: 45 96% 53%;
-    --primary-foreground: 0 0% 10%;
+    /* Signature blue */
+    --primary: 233 88% 32%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Energetic orange - machinery and action */
-    --secondary: 25 95% 53%;
+    /* Supporting blue tint */
+    --secondary: 233 88% 40%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 15% 96%;
     --muted-foreground: 220 10% 46%;
 
-    --accent: 25 95% 53%;
+    --accent: 233 88% 36%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -36,7 +36,7 @@ All colors MUST be HSL.
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 45 96% 53%;
+    --ring: 233 88% 32%;
 
     --radius: 0.5rem;
 
@@ -45,8 +45,8 @@ All colors MUST be HSL.
     --success-foreground: 0 0% 100%;
 
     /* Hero gradient */
-    --hero-gradient-start: 45 96% 53%;
-    --hero-gradient-end: 45 96% 43%;
+    --hero-gradient-start: 233 88% 32%;
+    --hero-gradient-end: 233 88% 24%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -68,16 +68,16 @@ All colors MUST be HSL.
     --popover: 220 15% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 45 96% 60%;
-    --primary-foreground: 0 0% 10%;
+    --primary: 233 88% 40%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 25 95% 53%;
+    --secondary: 233 88% 48%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 220 15% 18%;
     --muted-foreground: 220 10% 65%;
 
-    --accent: 25 95% 53%;
+    --accent: 233 88% 44%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -85,13 +85,13 @@ All colors MUST be HSL.
 
     --border: 220 15% 18%;
     --input: 220 15% 18%;
-    --ring: 45 96% 60%;
+    --ring: 233 88% 40%;
 
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
 
-    --hero-gradient-start: 45 96% 55%;
-    --hero-gradient-end: 45 96% 40%;
+    --hero-gradient-start: 233 88% 38%;
+    --hero-gradient-end: 233 88% 24%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -112,4 +112,32 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  40%,
+  60% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: currentColor;
+  }
+}
+
+.animate-typing {
+  animation: typing 4s steps(30) infinite, caret 0.8s steps(1) infinite;
+  display: inline-block;
 }
