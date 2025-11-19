@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: '/',
   server: {
     host: "0.0.0.0",
     port: 8081,
@@ -20,6 +21,16 @@ export default defineConfig(({ mode }) => ({
       '/cvs': {
         target: 'http://localhost:3001',
         changeOrigin: true,
+      },
+    },
+  },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
       },
     },
   },

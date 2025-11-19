@@ -34,8 +34,59 @@ if (!fs.existsSync(cvsDir)) {
 app.use(cors());
 app.use(express.json());
 app.use(fileUpload());
-app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
+
+// Serve static files with proper MIME types
+app.use('/uploads', express.static(path.join(__dirname, '../public/uploads'), {
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.js')) {
+      res.setHeader('Content-Type', 'application/javascript');
+    } else if (filePath.endsWith('.mjs')) {
+      res.setHeader('Content-Type', 'application/javascript');
+    } else if (filePath.endsWith('.css')) {
+      res.setHeader('Content-Type', 'text/css');
+    }
+  }
+}));
+
 app.use('/cvs', express.static(path.join(__dirname, '../public/cvs')));
+
+// Serve frontend build files in production (before API routes)
+if (process.env.NODE_ENV === 'production') {
+  const distPath = path.join(__dirname, '../dist');
+  
+  // Serve static assets with proper MIME types
+  app.use(express.static(distPath, {
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith('.js')) {
+        res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+      } else if (filePath.endsWith('.mjs')) {
+        res.setHeader('Content-Type', 'application/javascript; charset=utf-8');
+      } else if (filePath.endsWith('.css')) {
+        res.setHeader('Content-Type', 'text/css; charset=utf-8');
+      } else if (filePath.endsWith('.json')) {
+        res.setHeader('Content-Type', 'application/json; charset=utf-8');
+      } else if (filePath.endsWith('.svg')) {
+        res.setHeader('Content-Type', 'image/svg+xml');
+      } else if (filePath.endsWith('.png')) {
+        res.setHeader('Content-Type', 'image/png');
+      } else if (filePath.endsWith('.jpg') || filePath.endsWith('.jpeg')) {
+        res.setHeader('Content-Type', 'image/jpeg');
+      } else if (filePath.endsWith('.webp')) {
+        res.setHeader('Content-Type', 'image/webp');
+      } else if (filePath.endsWith('.woff')) {
+        res.setHeader('Content-Type', 'font/woff');
+      } else if (filePath.endsWith('.woff2')) {
+        res.setHeader('Content-Type', 'font/woff2');
+      } else if (filePath.endsWith('.ttf')) {
+        res.setHeader('Content-Type', 'font/ttf');
+      } else if (filePath.endsWith('.eot')) {
+        res.setHeader('Content-Type', 'application/vnd.ms-fontobject');
+      }
+    },
+    maxAge: '1y', // Cache static assets
+    immutable: true
+  }));
+}
 
 // Middleware for authentication
 const authenticateToken = async (req, res, next) => {
@@ -804,6 +855,18 @@ app.delete('/api/admin/cvs/:id', authenticateToken, async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+// Serve index.html for all non-API routes (SPA routing) - must be after all API routes
+if (process.env.NODE_ENV === 'production') {
+  const distPath = path.join(__dirname, '../dist');
+  app.get('*', (req, res) => {
+    // Don't serve index.html for API routes, uploads, or cvs
+    if (req.path.startsWith('/api') || req.path.startsWith('/uploads') || req.path.startsWith('/cvs')) {
+      return res.status(404).json({ error: 'Not found' });
+    }
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+}
 
 const HOST = process.env.HOST || '0.0.0.0';
 
