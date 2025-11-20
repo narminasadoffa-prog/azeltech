@@ -10,11 +10,13 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileFleetOpen, setMobileFleetOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileYouthOpen, setMobileYouthOpen] = useState(false);
 
   useEffect(() => {
     if (!mobileMenuOpen) {
       setMobileFleetOpen(false);
       setMobileServicesOpen(false);
+      setMobileYouthOpen(false);
     }
   }, [mobileMenuOpen]);
 
@@ -45,8 +47,24 @@ const Header = () => {
     { to: "/services#planning-support", label: "Ərazi Planlaşdırılması və Layihə Dəstəyi", value: "planning-support" },
   ];
 
+  const youthDropdownItems = [
+    { to: "/youth#programs", label: "Yeniyetmə Proqramları", value: "programs" },
+    { to: "/youth#education", label: "Təhsil və Təlim", value: "education" },
+    { to: "/youth#sports", label: "İdman və Fəaliyyətlər", value: "sports" },
+    { to: "/youth#children", label: "Uşaqlar üçün Xidmətlər", value: "children" },
+    { to: "/youth#events", label: "Tədbirlər və Aktivliklər", value: "events" },
+  ];
+
   const activeServicesHash = useMemo(() => {
     if (!location.pathname.startsWith("/services")) {
+      return null;
+    }
+
+    return (location.hash && location.hash !== "#") ? location.hash : null;
+  }, [location.hash, location.pathname]);
+
+  const activeYouthHash = useMemo(() => {
+    if (!location.pathname.startsWith("/youth")) {
       return null;
     }
 
@@ -58,6 +76,7 @@ const Header = () => {
     { to: "/about", label: "Haqqımızda" },
     { to: "/services", label: "Xidmətlər", dropdown: servicesDropdownItems },
     { to: "/fleet", label: "Texnika Parkı", dropdown: fleetDropdownItems },
+    { to: "/youth", label: "Yeniyetmə və Uşaq", dropdown: youthDropdownItems },
     { to: "/projects", label: "Layihələr" },
     { to: "/blog", label: "Blog / Yeniliklər" },
     { to: "/contact", label: "Əlaqə" },
@@ -95,6 +114,8 @@ const Header = () => {
                           ? activeFleetHash === `#${item.value}`
                           : link.to === "/services"
                           ? activeServicesHash === `#${item.value}`
+                          : link.to === "/youth"
+                          ? activeYouthHash === `#${item.value}`
                           : false;
                         return (
                           <li key={item.to}>
@@ -166,6 +187,8 @@ const Header = () => {
                           setMobileFleetOpen((prev) => !prev);
                         } else if (link.to === "/services") {
                           setMobileServicesOpen((prev) => !prev);
+                        } else if (link.to === "/youth") {
+                          setMobileYouthOpen((prev) => !prev);
                         }
                       }}
                       className="rounded-full p-1 text-muted-foreground transition hover:bg-muted/80"
@@ -174,7 +197,8 @@ const Header = () => {
                       <ChevronDown
                         className={`h-5 w-5 transition-transform ${
                           (link.to === "/fleet" && mobileFleetOpen) ||
-                          (link.to === "/services" && mobileServicesOpen)
+                          (link.to === "/services" && mobileServicesOpen) ||
+                          (link.to === "/youth" && mobileYouthOpen)
                             ? "-rotate-180"
                             : ""
                         }`}
@@ -182,7 +206,8 @@ const Header = () => {
                     </button>
                   </div>
                   {((link.to === "/fleet" && mobileFleetOpen) ||
-                    (link.to === "/services" && mobileServicesOpen)) && (
+                    (link.to === "/services" && mobileServicesOpen) ||
+                    (link.to === "/youth" && mobileYouthOpen)) && (
                     <div className="space-y-2 border-l border-border/60 pl-4">
                       {link.dropdown.map((item) => {
                         const isActive =
@@ -190,6 +215,8 @@ const Header = () => {
                             ? activeFleetHash === `#${item.value}`
                             : link.to === "/services"
                             ? activeServicesHash === `#${item.value}`
+                            : link.to === "/youth"
+                            ? activeYouthHash === `#${item.value}`
                             : false;
                         return (
                           <NavLink
@@ -204,6 +231,7 @@ const Header = () => {
                               setMobileMenuOpen(false);
                               setMobileFleetOpen(false);
                               setMobileServicesOpen(false);
+                              setMobileYouthOpen(false);
                             }}
                           >
                             {item.label}
